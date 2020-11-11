@@ -758,6 +758,11 @@ PrefabInstance:
       propertyPath: speed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 2262200537584566324, guid: 5324f779ddc4aaf4584a4cafce72f2d3,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2262200537584566326, guid: 5324f779ddc4aaf4584a4cafce72f2d3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -842,6 +847,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2760909032792112222, guid: 9ab8202d90ddc2349a790e141bd55f1b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stars
+      objectReference: {fileID: 0}
     - target: {fileID: 2760909032792112223, guid: 9ab8202d90ddc2349a790e141bd55f1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -851,6 +861,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760909033524007481, guid: 9ab8202d90ddc2349a790e141bd55f1b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760909033719857447, guid: 9ab8202d90ddc2349a790e141bd55f1b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stars
       objectReference: {fileID: 0}
     - target: {fileID: 2760909033999590760, guid: 9ab8202d90ddc2349a790e141bd55f1b,
         type: 3}
@@ -921,6 +941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760909034169226660, guid: 9ab8202d90ddc2349a790e141bd55f1b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stars
       objectReference: {fileID: 0}
     - target: {fileID: 2760909034169226661, guid: 9ab8202d90ddc2349a790e141bd55f1b,
         type: 3}

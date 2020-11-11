@@ -59,4 +59,41 @@ public class FollowGyro : MonoBehaviour
             rb2d.MovePosition(finalPosition);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject[] gameObjs = GameObject.FindGameObjectsWithTag("Stars");
+        //var firstStar = gameObjs[0].GetComponent<ParallaxGyro>();
+        //if(firstStar != null && firstStar.isMoving == false)
+        //{
+        //    return; 
+        //} 
+        if (gameObjs != null)
+        {
+            foreach (GameObject gameObject in gameObjs)
+            {
+                var starParallax = gameObject.GetComponent<ParallaxGyro>();
+                starParallax.isMoving = false;
+            }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        GameObject[] gameObjs = GameObject.FindGameObjectsWithTag("Stars");
+        //var firstStar = gameObjs[0].GetComponent<ParallaxGyro>();
+        //if (firstStar != null && firstStar.isMoving == true)
+        //{
+        //    return;
+        //}
+
+        if (gameObjs != null)
+        {
+            foreach (GameObject gameObject in gameObjs)
+            {
+                var starParallax = gameObject.GetComponent<ParallaxGyro>();
+                starParallax.isMoving = true;
+            }
+        }
+    }
 }
