@@ -51,32 +51,85 @@ public class FollowGyro : MonoBehaviour
             if (Mathf.Abs(finalPosition.y) > limitXY)
             {
                 finalPosition.y = rb2d.position.y;
+                StopStarsMovement(false);
             }
-            else if (Mathf.Abs(finalPosition.x) > limitXY)
+            else
+            {
+                StartStarsMovement(false);
+            }
+            if (Mathf.Abs(finalPosition.x) > limitXY)
             {
                 finalPosition.x = rb2d.position.x;
+                StopStarsMovement(true);
+            }
+            else
+            {
+                StartStarsMovement(true);
             }
             rb2d.MovePosition(finalPosition);
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void StopStarsMovement(bool isX)
     {
         GameObject[] gameObjs = GameObject.FindGameObjectsWithTag("Stars");
-        //var firstStar = gameObjs[0].GetComponent<ParallaxGyro>();
-        //if(firstStar != null && firstStar.isMoving == false)
-        //{
-        //    return; 
-        //} 
         if (gameObjs != null)
         {
-            foreach (GameObject gameObject in gameObjs)
+            if (isX) {
+                foreach (GameObject gameObject in gameObjs)
+                {
+                    var starParallax = gameObject.GetComponent<ParallaxGyro>();
+                    starParallax.isMovingX = false;
+                }
+            }
+            else
             {
-                var starParallax = gameObject.GetComponent<ParallaxGyro>();
-                starParallax.isMoving = false;
+                foreach (GameObject gameObject in gameObjs)
+                {
+                    var starParallax = gameObject.GetComponent<ParallaxGyro>();
+                    starParallax.isMovingY = false;
+                }
+            }
+        }
+
+    }
+
+    void StartStarsMovement(bool isX)
+    {
+        GameObject[] gameObjs = GameObject.FindGameObjectsWithTag("Stars");
+
+        if (gameObjs != null)
+        {
+            if (isX)
+            {
+                var firstStar = gameObjs[0].GetComponent<ParallaxGyro>();
+                if (firstStar != null && firstStar.isMovingX == true)
+                {
+                    return;
+                }
+
+                foreach (GameObject gameObject in gameObjs)
+                {
+                    var starParallax = gameObject.GetComponent<ParallaxGyro>();
+                    starParallax.isMovingX = true;
+                }
+            }
+            else
+            {
+                var firstStar = gameObjs[0].GetComponent<ParallaxGyro>();
+                if (firstStar != null && firstStar.isMovingY == true)
+                {
+                    return;
+                }
+                foreach (GameObject gameObject in gameObjs)
+                {
+                    var starParallax = gameObject.GetComponent<ParallaxGyro>();
+                    starParallax.isMovingY = true;
+                }
             }
         }
     }
+    
 
     void OnCollisionExit2D(Collision2D collision)
     {
