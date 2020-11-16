@@ -37,11 +37,11 @@ public class ParallaxGyro : MonoBehaviour
         {
             float moveX = -gyroMovement.y;
             float moveY = gyroMovement.x;
-            if (Mathf.Abs(star.transform.position.x + (moveX * speed)) > limitX && !isMovingX)
+            if (/*Mathf.Abs(star.transform.position.x + (moveX * speed)) > limitX &&*/ !isMovingX)
             {
                 moveX = 0;
             }
-            if (Mathf.Abs(star.transform.position.y + (moveY * speed)) > limitY && !isMovingY)
+            if (/*Mathf.Abs(star.transform.position.y + (moveY * speed)) > limitY &&*/ !isMovingY)
             {
                 moveY = 0;
             }

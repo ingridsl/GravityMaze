@@ -48,21 +48,21 @@ public class FollowGyro : MonoBehaviour
 
             Vector2 movement = new Vector2(-moveBallX * speed, moveBallY * speed);
             Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
-            if (Mathf.Abs(finalPosition.y) > limitXY)
+            if (Mathf.Abs(finalPosition.y) > limitXY) //reached screen movement limit on Y
             {
                 finalPosition.y = rb2d.position.y;
                 StopStarsMovement(false);
             }
-            else
+            else //did not reach screen movement limit on Y
             {
                 StartStarsMovement(false);
             }
-            if (Mathf.Abs(finalPosition.x) > limitXY)
+            if (Mathf.Abs(finalPosition.x) > limitXY) //reached screen movement limit on X
             {
                 finalPosition.x = rb2d.position.x;
                 StopStarsMovement(true);
             }
-            else
+            else //did not reach screen movement limit on X
             {
                 StartStarsMovement(true);
             }
@@ -75,14 +75,14 @@ public class FollowGyro : MonoBehaviour
         GameObject[] gameObjs = GameObject.FindGameObjectsWithTag("Stars");
         if (gameObjs != null)
         {
-            if (isX) {
+            if (isX) { // limit movement on X axis
                 foreach (GameObject gameObject in gameObjs)
                 {
                     var starParallax = gameObject.GetComponent<ParallaxGyro>();
                     starParallax.isMovingX = false;
                 }
             }
-            else
+            else //limit movement on Y axis
             {
                 foreach (GameObject gameObject in gameObjs)
                 {
@@ -131,22 +131,22 @@ public class FollowGyro : MonoBehaviour
     }
     
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        GameObject[] gameObjs = GameObject.FindGameObjectsWithTag("Stars");
-        //var firstStar = gameObjs[0].GetComponent<ParallaxGyro>();
-        //if (firstStar != null && firstStar.isMoving == true)
-        //{
-        //    return;
-        //}
+    //void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    GameObject[] gameObjs = GameObject.FindGameObjectsWithTag("Stars");
+    //    //var firstStar = gameObjs[0].GetComponent<ParallaxGyro>();
+    //    //if (firstStar != null && firstStar.isMoving == true)
+    //    //{
+    //    //    return;
+    //    //}
 
-        if (gameObjs != null)
-        {
-            foreach (GameObject gameObject in gameObjs)
-            {
-                var starParallax = gameObject.GetComponent<ParallaxGyro>();
-                starParallax.isMoving = true;
-            }
-        }
-    }
+    //    if (gameObjs != null)
+    //    {
+    //        foreach (GameObject gameObject in gameObjs)
+    //        {
+    //            var starParallax = gameObject.GetComponent<ParallaxGyro>();
+    //            starParallax.isMoving = true;
+    //        }
+    //    }
+    //}
 }
