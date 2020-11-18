@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C8A03698-C6F6-25E1-93BA-2129E1AFA4BA}</ProjectGuid>
+    <ProjectGuid>{60E5825D-F2C8-46DA-4281-8D30129DAE78}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,10 +54,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GyroManager.cs" />
-    <Compile Include="Assets\Scripts\ParallaxGyro.cs" />
-    <Compile Include="Assets\Scripts\FollowGyro.cs" />
     <Compile Include="Assets\Scripts\Countdown.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
+    <Compile Include="Assets\Scripts\ParallaxGyro.cs" />
+    <Compile Include="Assets\Scripts\FollowGyro.cs" />
+    <Compile Include="Assets\Scripts\ButtonHandler.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Assets\Space Shooter Game GUI\TXT\license.txt" />
