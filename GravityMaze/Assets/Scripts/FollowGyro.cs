@@ -59,4 +59,21 @@ public class FollowGyro : MonoBehaviour
             rb2d.MovePosition(finalPosition);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+
+        Debug.Log("GameObject2 collided with " + col.name);
+        if (col.gameObject.tag == "End")
+        {
+            GameObject winGameObj = GameObject.Find("WinOrLose");
+            if (winGameObj != null)
+            {
+                if (winGameObj.transform.name == "Win")
+                {
+                    winGameObj.transform.gameObject.SetActive(true);
+                };
+            }
+        }
+    }
 }
