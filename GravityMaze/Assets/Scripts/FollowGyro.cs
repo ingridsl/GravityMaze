@@ -11,8 +11,8 @@ public class FollowGyro : MonoBehaviour
     private Rigidbody2D rb2d;
     public float speed = 15;
 
-    private readonly float idleProtectionY = 0.045f;
-    private readonly float idleProtectionX = 0.045f;
+    private readonly float idleProtectionY = 0.03f;
+    private readonly float idleProtectionX = 0.03f;
 
     private readonly float limitXY = 4.7f;
 
@@ -57,6 +57,22 @@ public class FollowGyro : MonoBehaviour
                 finalPosition.x = rb2d.position.x;
             }
             rb2d.MovePosition(finalPosition);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        
+        if (col.gameObject.tag == "End")
+        {
+            GameObject winGameObj = GameObject.Find("WinOrLose");
+            if (winGameObj != null)
+            {
+                if (winGameObj.transform.name == "Win")
+                {
+                    winGameObj.transform.gameObject.SetActive(true);
+                };
+            }
         }
     }
 }
