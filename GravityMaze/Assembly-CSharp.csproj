@@ -68,6 +68,8 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\Scripts\ParallaxGyro.cs" />
     <Compile Include="Assets\Scripts\PauseHandler.cs" />
+    <Compile Include="Assets\Scripts\PointManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Assets\Space Shooter Game GUI\TXT\license.txt" />
