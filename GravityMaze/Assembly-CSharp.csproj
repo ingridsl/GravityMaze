@@ -53,12 +53,12 @@
     <UnityVersion>2020.1.10f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ButtonHandler.cs" />
     <Compile Include="Assets\Scripts\GyroManager.cs" />
     <Compile Include="Assets\Scripts\Countdown.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\ParallaxGyro.cs" />
     <Compile Include="Assets\Scripts\FollowGyro.cs" />
-    <Compile Include="Assets\Scripts\ButtonHandler.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Assets\Space Shooter Game GUI\TXT\license.txt" />
