@@ -32,7 +32,7 @@ public class PointManager : MonoBehaviour
         var player = GameObject.Find("Ball");
         if (player != null)
         {
-            var playerManager = player.GetComponent<PlayerManager>();
+            var playerManager = player.GetComponent<GameManager>();
             if (playerManager != null)
             {
                 playerManager.pointsOnLevel++;
