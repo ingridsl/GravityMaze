@@ -28,6 +28,21 @@ public class EndLevel : MonoBehaviour
                     if (child.name == "Win")
                     {
                         child.gameObject.SetActive(true);
+                        continue;
+                    }
+                }
+
+            }
+
+            GameObject uiGameObj = GameObject.Find("UI");
+            if (uiGameObj != null)
+            {
+                foreach (Transform child in uiGameObj.transform)
+                {
+                    if (child.tag == "Alien")
+                    {
+                        child.gameObject.SetActive(true);
+                        return;
                     }
                 }
 

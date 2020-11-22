@@ -11,8 +11,8 @@ public class FollowGyro : MonoBehaviour
     private Rigidbody2D rb2d;
     public float speed = 15;
 
-    private readonly float idleProtectionY = 0.045f;
-    private readonly float idleProtectionX = 0.045f;
+    private readonly float idleProtectionY = 0.04f;
+    private readonly float idleProtectionX = 0.04f;
 
     private readonly float limitXY = 4.7f;
 
@@ -62,8 +62,7 @@ public class FollowGyro : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-
-        Debug.Log("GameObject2 collided with " + col.name);
+        
         if (col.gameObject.tag == "End")
         {
             GameObject winGameObj = GameObject.Find("WinOrLose");
