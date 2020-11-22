@@ -67,7 +67,6 @@
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\Scripts\ParallaxGyro.cs" />
-    <Compile Include="Assets\Scripts\FollowGyro.cs" />
     <Compile Include="Assets\Scripts\PauseHandler.cs" />
   </ItemGroup>
   <ItemGroup>
