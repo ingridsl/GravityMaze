@@ -11,8 +11,8 @@ public class FollowGyro : MonoBehaviour
     private Rigidbody2D rb2d;
     public float speed = 15;
 
-    private readonly float idleProtectionY = 0.04f;
-    private readonly float idleProtectionX = 0.04f;
+    private readonly float idleProtectionY = 0.03f;
+    private readonly float idleProtectionX = 0.03f;
 
     private readonly float limitXY = 4.7f;
 

@@ -41,7 +41,7 @@ public class EndLevel : MonoBehaviour
                 {
                     if (child.tag == "Alien")
                     {
-                        child.gameObject.SetActive(true);
+                        child.gameObject.SetActive(false);
                         return;
                     }
                 }
