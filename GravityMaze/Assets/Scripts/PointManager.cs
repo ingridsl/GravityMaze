@@ -22,7 +22,7 @@ public class PointManager : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            this.enabled = false;
+            this.gameObject.SetActive(false);
             AddPoint();
         }
     }
