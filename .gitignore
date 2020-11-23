@@ -48,7 +48,7 @@ Corridor/Library/metadata/
 *.meta
 *.eps
 GravityMaze/Library/SourceAssetDB
-GravityMaze/Library
+GravityMaze/Library/
 GravityMaze/Library/ArtifactDB
 GravityMaze/Library/CurrentLayout-default.dwlt
 GravityMaze/Library/expandedItems
