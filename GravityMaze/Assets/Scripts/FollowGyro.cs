@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowGyro : MonoBehaviour
-{
+{ 
     [Header("Logic")]
     [SerializeField] private Quaternion baseRotation = new Quaternion(0, 0, 1, 0);
     public Quaternion gyroMovement = new Quaternion(0, 0, 1, 0);
