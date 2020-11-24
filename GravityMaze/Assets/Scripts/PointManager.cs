@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PointManager : MonoBehaviour
 {
-    
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -22,6 +22,7 @@ public class PointManager : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
+            audioSource.Play();
             this.gameObject.SetActive(false);
             AddPoint();
         }
@@ -29,14 +30,10 @@ public class PointManager : MonoBehaviour
 
     public static void AddPoint()
     {
-        var player = GameObject.Find("Ball");
-        if (player != null)
+        var gameManager = GameManager.GetGameManager();
+        if (gameManager != null)
         {
-            var playerManager = player.GetComponent<GameManager>();
-            if (playerManager != null)
-            {
-                playerManager.pointsOnLevel++;
-            }
+            gameManager.pointsOnLevel++;
         }
     }
 }

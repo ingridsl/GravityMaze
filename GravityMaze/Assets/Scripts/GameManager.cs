@@ -22,5 +22,9 @@ public class GameManager : MonoBehaviour
     {
         var teste = Screen.orientation;
     }
-    
+
+    static public GameManager GetGameManager()
+    {
+        return GameObject.Find("GameManager").GetComponent(typeof(GameManager)) as GameManager;
+    }
 }
