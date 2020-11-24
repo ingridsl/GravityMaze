@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PointManager : MonoBehaviour
 {
-    public AudioClip gotPointSound;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -23,7 +22,7 @@ public class PointManager : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            AudioSource.PlayClipAtPoint(gotPointSound, transform.position, 1);
+            audioSource.Play();
             this.gameObject.SetActive(false);
             AddPoint();
         }

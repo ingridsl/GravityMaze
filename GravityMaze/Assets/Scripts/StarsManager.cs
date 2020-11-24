@@ -11,9 +11,13 @@ public class StarsManager : MonoBehaviour
     public GameObject Star1;
     public GameObject Star2;
     public GameObject Star3;
+    
     // Start is called before the first frame update
     void Start()
     {
+        var anim = gameObject.GetComponent<Animator>();
+        anim.SetTrigger("Star3");
+
         var gameManager = GameManager.GetGameManager();
         float totalPointsLevel = gameManager.totalPointsOfLevel;
         float pointsPlayer = gameManager.pointsOnLevel;
@@ -23,7 +27,7 @@ public class StarsManager : MonoBehaviour
         if (successRate >= 40)
         {
             Star2.transform.GetComponent<Image>().sprite = GoldenStar;
-            if (successRate >= 80)
+            if (successRate >= 90)
             {
                 Star3.transform.GetComponent<Image>().sprite = GoldenStar;
             }
@@ -34,6 +38,6 @@ public class StarsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     
     }
 }
