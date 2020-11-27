@@ -59,8 +59,22 @@ public class PauseHandler : MonoBehaviour
         {
             foreach (Transform child in pausableGameObj.transform)
             {
-                //pausar movimentação da bolinha
-                //pausar movimentação dos inimitos, quando existirem
+                child.GetComponent<FollowGyro>().canMove = false;
+                //pausar movimentação dos inimigos, quando existirem
+            }
+        }
+
+
+        GameObject pauseGameObj = GameObject.Find("PauseObjects");
+        if (pauseGameObj != null)
+        {
+            foreach (Transform child in pauseGameObj.transform)
+            {
+                if (child.name == "PauseMenu")
+                {
+                    child.gameObject.SetActive(true);
+                    return;
+                }
             }
 
         }
@@ -68,12 +82,25 @@ public class PauseHandler : MonoBehaviour
 
     public void PlayClick()
     {
+        GameObject pauseGameObj = GameObject.Find("PauseObjects");
+        if (pauseGameObj != null)
+        {
+            foreach (Transform child in pauseGameObj.transform)
+            {
+                if (child.name == "PauseMenu")
+                {
+                    child.gameObject.SetActive(false);
+                    return;
+                }
+            }
+        }
+
         GameObject pausableGameObj = GameObject.Find("Pausable");
         if (pausableGameObj != null)
         {
             foreach (Transform child in pausableGameObj.transform)
             {
-                //despausar movimentação da bolinha
+                child.GetComponent<FollowGyro>().canMove = true;
                 //pausar movimentação dos inimitos, quando existirem
             }
 
