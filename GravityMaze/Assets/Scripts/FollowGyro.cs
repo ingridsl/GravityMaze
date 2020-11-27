@@ -16,7 +16,7 @@ public class FollowGyro : MonoBehaviour
 
     private readonly float limitXY = 4.7f;
 
-    private bool canMove = false;
+    public bool canMove = false;
 
     // Start is called before the first frame update
     void Start()
