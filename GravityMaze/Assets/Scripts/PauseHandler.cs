@@ -59,8 +59,11 @@ public class PauseHandler : MonoBehaviour
         {
             foreach (Transform child in pausableGameObj.transform)
             {
-                child.GetComponent<FollowGyro>().canMove = false;
-                //pausar movimentação dos inimigos, quando existirem
+                if (child.transform.name == "Ball")
+                {
+                    child.GetComponent<FollowGyro>().canMove = false;
+                    //pausar movimentação dos inimigos, quando existirem
+                }
             }
         }
 

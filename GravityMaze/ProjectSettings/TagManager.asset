@@ -8,6 +8,7 @@ TagManager:
   - Alien
   - Countdown
   - Star
+  - ScreenRemovable
   layers:
   - Default
   - TransparentFX
