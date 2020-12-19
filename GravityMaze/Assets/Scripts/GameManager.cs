@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public int pointsOnLevel = 0;
     public int totalPointsOfLevel = 3;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var teste = Screen.orientation;
-        Screen.orientation = ScreenOrientation.LandscapeRight;
-        Debug.Log(Screen.orientation.ToString());
+        //var teste = Screen.orientation;
+        //Screen.orientation = ScreenOrientation.LandscapeRight;
+        //Debug.Log(Screen.orientation.ToString());
     }
 
     static public GameManager GetGameManager()
