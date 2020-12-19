@@ -16,7 +16,7 @@ public class FollowGyro : MonoBehaviour
 
     private readonly float limitXY = 4.7f;
 
-    private bool canMove = false;
+    public bool canMove = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +41,12 @@ public class FollowGyro : MonoBehaviour
         {
             gyroMovement = GyroManager.Instance.GetGyroRotation() * baseRotation;
             //gyro x is map y. gyro y is map x
-            float moveBallX = (Mathf.Abs(gyroMovement.y) > idleProtectionY) ?
-                                    gyroMovement.y : 0f;
-            float moveBallY = (Mathf.Abs(gyroMovement.x) > idleProtectionX) ?
+            float moveBallX = (Mathf.Abs(gyroMovement.x) > idleProtectionX) ?
                                     gyroMovement.x : 0f;
+            float moveBallY = (Mathf.Abs(gyroMovement.y) > idleProtectionY) ?
+                                    gyroMovement.y : 0f;
 
-            Vector2 movement = new Vector2(-moveBallX * speed, moveBallY * speed);
+            Vector2 movement = new Vector2(-moveBallX * speed, -moveBallY * speed);
             Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
             if (Mathf.Abs(finalPosition.y) > limitXY)
             {
