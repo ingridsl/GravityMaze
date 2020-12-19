@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //var teste = Screen.orientation;
+        var teste = Screen.orientation;
+        Screen.orientation = ScreenOrientation.LandscapeRight;
         Debug.Log(Screen.orientation.ToString());
     }
 
