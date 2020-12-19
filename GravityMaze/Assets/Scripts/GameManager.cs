@@ -15,12 +15,14 @@ public class GameManager : MonoBehaviour
         Screen.autorotateToLandscapeLeft = false;
 
         Screen.orientation = ScreenOrientation.LandscapeRight;
+        Debug.Log(Screen.orientation.ToString());
     }
 
     // Update is called once per frame
     void Update()
     {
-        var teste = Screen.orientation;
+        //var teste = Screen.orientation;
+        Debug.Log(Screen.orientation.ToString());
     }
 
     static public GameManager GetGameManager()
