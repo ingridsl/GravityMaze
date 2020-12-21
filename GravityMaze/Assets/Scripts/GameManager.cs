@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int pointsOnLevel = 0;
-    public int totalPointsOfLevel = 3;
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,5 +27,10 @@ public class GameManager : MonoBehaviour
     static public GameManager GetGameManager()
     {
         return GameObject.Find("GameManager").GetComponent(typeof(GameManager)) as GameManager;
+    }
+
+    static public void SaveProgress()
+    {
+
     }
 }

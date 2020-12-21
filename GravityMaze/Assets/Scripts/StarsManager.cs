@@ -18,9 +18,9 @@ public class StarsManager : MonoBehaviour
         var anim = gameObject.GetComponent<Animator>();
         anim.SetTrigger("Star3");
 
-        var gameManager = GameManager.GetGameManager();
-        float totalPointsLevel = gameManager.totalPointsOfLevel;
-        float pointsPlayer = gameManager.pointsOnLevel;
+        var levelManager = LevelManager.GetLevelManager();
+        float totalPointsLevel = levelManager.totalPointsOfLevel;
+        float pointsPlayer = levelManager.pointsOnLevel;
 
         var successRate = (pointsPlayer / totalPointsLevel) * 100;
         Star1.transform.GetComponent<Image>().sprite = GoldenStar;
