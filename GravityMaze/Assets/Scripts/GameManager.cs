@@ -29,7 +29,12 @@ public class GameManager : MonoBehaviour
         return GameObject.Find("GameManager").GetComponent(typeof(GameManager)) as GameManager;
     }
 
-    static public void SaveProgress()
+    static public void LoadSave()
+    {
+
+    }
+
+    static public void NewSave()
     {
 
     }

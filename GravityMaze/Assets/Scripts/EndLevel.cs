@@ -20,33 +20,10 @@ public class EndLevel : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            GameObject winGameObj = GameObject.Find("WinOrLose");
-            if (winGameObj != null)
+            LevelManager levelManager = LevelManager.GetLevelManager();
+            if (levelManager != null)
             {
-                foreach (Transform child in winGameObj.transform)
-                {
-                    if (child.name == "Win")
-                    {
-                        child.gameObject.SetActive(true);
-                        continue;
-                    }
-                }
-
-            }
-
-            GameObject uiGameObj = GameObject.Find("UI");
-            if (uiGameObj != null)
-            {
-                foreach (Transform child in uiGameObj.transform)
-                {
-                    if (child.tag == "Alien")
-                    {
-                        child.gameObject.SetActive(false);
-                        PointManager.AddPoint();
-                        return;
-                    }
-                }
-
+                levelManager.EndLevel();
             }
         }
     }

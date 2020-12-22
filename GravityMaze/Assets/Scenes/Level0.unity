@@ -199,6 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34270084}
   - component: {fileID: 34270085}
+  - component: {fileID: 34270086}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -232,8 +233,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc5a24bf8b1c354dbac2a841c465260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &34270086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34270083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775ba583df6d8174ebec9cae7ddfa7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   pointsOnLevel: 0
   totalPointsOfLevel: 5
+  levelNumber: 1
 --- !u!1 &90801863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2733,8 +2747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc5a24bf8b1c354dbac2a841c465260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsOnLevel: 0
-  totalPointsOfLevel: 3
 --- !u!1 &1640184291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2785,8 +2797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc5a24bf8b1c354dbac2a841c465260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsOnLevel: 0
-  totalPointsOfLevel: 3
 --- !u!1 &1689927293
 GameObject:
   m_ObjectHideFlags: 0
