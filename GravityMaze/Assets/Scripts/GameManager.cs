@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public SaveData saveData = null;
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,24 +42,21 @@ public class GameManager : MonoBehaviour
 
     public void LoadSave()
     {
-        SaveData save = SaveData.LoadSave();
-        if (save == null)
+        saveData = SaveData.LoadSave();
+        if (saveData == null)
         {
             NewSave();
         }
     }
-    public void UpdateSave(int currentLevel, int pointsOnLevel)
+    public void UpdateSave(int currentLevel, int starsAmount)
     {
-        SaveData saveData = new SaveData
-        {
-            nextLevel = currentLevel + 1
-        };
-        saveData.levelStars[currentLevel - 1] = pointsOnLevel;
+        saveData.nextLevel = currentLevel + 1;
+        saveData.levelStars[currentLevel - 1] = starsAmount;
         saveData.Save();
     }
 
     public void NewSave()
     {
-        SaveData.NewSave();
+        saveData = SaveData.NewSave();
     }
 }

@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public int pointsOnLevel = 0;
     public int totalPointsOfLevel = 3; //amount of energy + 1 victory point
     public int levelNumber = 0;
+    public int startsAmount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,26 @@ public class LevelManager : MonoBehaviour
     {
         return GameObject.Find("GameManager").GetComponent(typeof(LevelManager)) as LevelManager;
     }
+    public void CalculateStarsAmount()
+    {
+        float pointsPlayer = pointsOnLevel;
+
+        var successRate = (pointsPlayer / totalPointsOfLevel) * 100;
+        startsAmount = 1;
+        if (successRate >= 40)
+        {
+            startsAmount++;
+            if (successRate >= 90)
+            {
+                startsAmount++;
+            }
+        }
+    }
 
     public void EndLevel()
     {
+        CalculateStarsAmount();
+
         GameObject winGameObj = GameObject.Find("WinOrLose");
         if (winGameObj != null)
         {
@@ -50,7 +68,7 @@ public class LevelManager : MonoBehaviour
                     GameManager gameManager = GameManager.GetGameManager();
                     if (gameManager)
                     {
-                        gameManager.UpdateSave(levelNumber, pointsOnLevel);
+                        gameManager.UpdateSave(levelNumber, startsAmount);
                     }
                     return;
                 }
@@ -58,4 +76,6 @@ public class LevelManager : MonoBehaviour
 
         }
     }
+
+    
 }
