@@ -1171,7 +1171,7 @@ GameObject:
   - component: {fileID: 338901046}
   - component: {fileID: 338901045}
   m_Layer: 0
-  m_Name: GameManager (1)
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1189,8 +1189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc5a24bf8b1c354dbac2a841c465260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsOnLevel: 0
-  totalPointsOfLevel: 5
 --- !u!4 &338901046
 Transform:
   m_ObjectHideFlags: 0

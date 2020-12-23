@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SaveData: MonoBehaviour
+public class SaveData
 {
     public int nextLevel = 1;
     public int[] levelStars = new int[] {
@@ -12,7 +12,7 @@ public class SaveData: MonoBehaviour
                                         0, 0, 0, 0, 0, //15
                                         };
 
-    public SaveData NewSave()
+    static public SaveData NewSave()
     {
         SaveData saveData = new SaveData();
         var teste = Application.persistentDataPath;
@@ -21,16 +21,21 @@ public class SaveData: MonoBehaviour
         return saveData;
     }
 
-    public static void SaveProgress(int currentLevel, int thisLevelPoints)
-    {
-        SaveData saveData = new SaveData
-        {
-            nextLevel = currentLevel + 1
-        };
-        saveData.levelStars[currentLevel-1] = thisLevelPoints;
-
+    public void Save()
+    {        
         var teste = Application.persistentDataPath;
         string saveStatePath = Path.Combine(Application.persistentDataPath , "playerSave.json");
-        File.WriteAllText(saveStatePath, JsonUtility.ToJson(saveData, true));
+        File.WriteAllText(saveStatePath, JsonUtility.ToJson(this, true));
+    }
+
+    public static SaveData LoadSave()
+    {
+        string path = Application.persistentDataPath + "/playerSave.json";
+        if (File.Exists(path))
+        {
+            var loadedGame = JsonUtility.FromJson<SaveData>(File.ReadAllText(path));
+            return loadedGame;
+        }
+        return null;
     }
 }

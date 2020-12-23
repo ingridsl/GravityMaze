@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,16 @@ public class GameManager : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeRight;
         Debug.Log(Screen.orientation.ToString());
     }
+    private void Start()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
 
+        if (sceneName == "MainMenu")
+        {
+            LoadSave();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,13 +39,26 @@ public class GameManager : MonoBehaviour
         return GameObject.Find("GameManager").GetComponent(typeof(GameManager)) as GameManager;
     }
 
-    static public void LoadSave()
+    public void LoadSave()
     {
-
+        SaveData save = SaveData.LoadSave();
+        if (save == null)
+        {
+            NewSave();
+        }
+    }
+    public void UpdateSave(int currentLevel, int pointsOnLevel)
+    {
+        SaveData saveData = new SaveData
+        {
+            nextLevel = currentLevel + 1
+        };
+        saveData.levelStars[currentLevel - 1] = pointsOnLevel;
+        saveData.Save();
     }
 
-    static public void NewSave()
+    public void NewSave()
     {
-
+        SaveData.NewSave();
     }
 }

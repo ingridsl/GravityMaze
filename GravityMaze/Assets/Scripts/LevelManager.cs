@@ -47,7 +47,11 @@ public class LevelManager : MonoBehaviour
                 {
                     child.gameObject.SetActive(false);
                     PointManager.AddPoint();
-                    SaveData.SaveProgress(levelNumber, pointsOnLevel);
+                    GameManager gameManager = GameManager.GetGameManager();
+                    if (gameManager)
+                    {
+                        gameManager.UpdateSave(levelNumber, pointsOnLevel);
+                    }
                     return;
                 }
             }
