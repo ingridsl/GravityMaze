@@ -57,21 +57,25 @@
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
     <Compile Include="Assets\Scripts\ButtonHandler.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\GyroManager.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
+    <Compile Include="Assets\Scripts\SaveData.cs" />
     <Compile Include="Assets\Scripts\EndLevel.cs" />
     <Compile Include="Assets\Scripts\Countdown.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Scripts\LevelTable.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\Scripts\ParallaxGyro.cs" />
     <Compile Include="Assets\Scripts\PointManager.cs" />
+    <Compile Include="Assets\Scripts\StarsManager.cs" />
     <Compile Include="Assets\Scripts\FollowGyro.cs" />
     <Compile Include="Assets\Scripts\PauseHandler.cs" />
-    <Compile Include="Assets\Scripts\StarsManager.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Assets\Space Shooter Game GUI\TXT\license.txt" />

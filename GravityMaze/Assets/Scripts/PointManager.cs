@@ -30,10 +30,10 @@ public class PointManager : MonoBehaviour
 
     public static void AddPoint()
     {
-        var gameManager = GameManager.GetGameManager();
-        if (gameManager != null)
+        var levelManager = LevelManager.GetLevelManager();
+        if (levelManager != null)
         {
-            gameManager.pointsOnLevel++;
+            levelManager.pointsOnLevel++;
         }
     }
 }
