@@ -6,30 +6,17 @@ using UnityEngine.UI;
 
 public class LevelTable : MonoBehaviour
 {
-    
+
     public Sprite GoldenStar;
 
-    public bool isLevel = false;
     // Start is called before the first frame update
     void Start()
     {
-        if (isLevel)
-        {
-            SetLevelStars();
-        }
-        else
-        {
-            EnableLevels();
-        }
+        EnableLevels();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
-    }
-
-    void SetLevelStars()
     {
 
     }
@@ -55,7 +42,7 @@ public class LevelTable : MonoBehaviour
                                 break;
                             }
                             else if (child2.gameObject.name == "Star1" &&
-                                gameManager.saveData.levelStars[levelNumber-1] >= 1) //if have this star, give it to player
+                                gameManager.saveData.levelStars[levelNumber - 1] >= 1) //if have this star, give it to player
                             {
                                 // give star
                                 child2.gameObject.transform.GetComponent<Image>().sprite = GoldenStar;

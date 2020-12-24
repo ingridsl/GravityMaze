@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
 
     static public LevelManager GetLevelManager()
     {
-        return GameObject.Find("GameManager").GetComponent(typeof(LevelManager)) as LevelManager;
+        return GameObject.Find("LevelManager").GetComponent(typeof(LevelManager)) as LevelManager;
     }
     public void CalculateStarsAmount()
     {
