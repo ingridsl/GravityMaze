@@ -93,7 +93,6 @@ public class PauseHandler : MonoBehaviour
                 if (child.name == "PauseMenu")
                 {
                     child.gameObject.SetActive(false);
-                    return;
                 }
             }
         }
