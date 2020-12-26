@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     {
         return GameObject.Find("LevelManager").GetComponent(typeof(LevelManager)) as LevelManager;
     }
+
     public void CalculateStarsAmount()
     {
         float pointsPlayer = pointsOnLevel;
@@ -38,38 +39,17 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void EndLevel()
+    public void VictoryOrLoseScreen(bool victory)
     {
-        CalculateStarsAmount();
-
         GameObject winGameObj = GameObject.Find("WinOrLose");
         if (winGameObj != null)
         {
             foreach (Transform child in winGameObj.transform)
             {
-                if (child.name == "Win")
+                string outcome = victory ? "Win" : "Lose";
+                if (child.name == outcome)
                 {
                     child.gameObject.SetActive(true);
-                    continue;
-                }
-            }
-
-        }
-
-        GameObject uiGameObj = GameObject.Find("UI");
-        if (uiGameObj != null)
-        {
-            foreach (Transform child in uiGameObj.transform)
-            {
-                if (child.tag == "Alien")
-                {
-                    child.gameObject.SetActive(false);
-                    PointManager.AddPoint();
-                    GameManager gameManager = GameManager.GetGameManager();
-                    if (gameManager)
-                    {
-                        gameManager.UpdateSave(levelNumber, startsAmount);
-                    }
                     return;
                 }
             }
@@ -77,5 +57,43 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    
+    public void HideScreenAlien()
+    {
+        var aliens = GameObject.FindGameObjectsWithTag("Alien");
+        if (aliens != null)
+        {
+            aliens[0].SetActive(false);
+        }
+    }
+
+
+    public void EndLevel()
+    {
+        CalculateStarsAmount();
+        VictoryOrLoseScreen(true);
+        HideScreenAlien();
+        PointManager.AddPoint();
+
+        GameManager gameManager = GameManager.GetGameManager();
+        if (gameManager)
+        {
+            gameManager.UpdateSave(levelNumber, startsAmount);
+        }
+    }
+
+    public void GameOver()
+    {
+        GameObject ballGameObj = GameObject.Find("Ball");
+        if (ballGameObj != null)
+        {
+            ballGameObj.GetComponent<FollowGyro>().canMove = false;
+        }
+
+        startsAmount = 0;
+        pointsOnLevel = 0;
+
+        HideScreenAlien();
+        VictoryOrLoseScreen(false);
+    }
+
 }
