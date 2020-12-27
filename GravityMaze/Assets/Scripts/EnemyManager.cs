@@ -16,9 +16,9 @@ public class EnemyManager : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collider.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             LevelManager levelManager = LevelManager.GetLevelManager();
             if (levelManager != null)

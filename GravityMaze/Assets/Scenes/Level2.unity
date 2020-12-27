@@ -2758,6 +2758,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7970185845953518385, guid: 288e755746082bb41ba868529f413b5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288e755746082bb41ba868529f413b5a, type: 3}
 --- !u!1 &1276483686
@@ -3095,15 +3100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinOrLose
       objectReference: {fileID: 0}
-    - target: {fileID: 8247237575772464820, guid: 2b58b4b9da3752a47a09219073cb40c7,
+    - target: {fileID: 610075261973950363, guid: 2b58b4b9da3752a47a09219073cb40c7,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247237576321353444, guid: 2b58b4b9da3752a47a09219073cb40c7,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level2
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b58b4b9da3752a47a09219073cb40c7, type: 3}
@@ -4265,24 +4265,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2016940363 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1018739445279049947, guid: 3c50878c84e74aa4fb5eddbf9a1efe2d,
-    type: 3}
-  m_PrefabInstance: {fileID: 113367993}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2016940364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016940363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79eba0b06a543364daf65a14895be3fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2041200428
 GameObject:
   m_ObjectHideFlags: 0
