@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour
             NewSave();
         }
     }
-    public void UpdateSave(int currentLevel, int starsAmount)
+    public void UpdateSave(int currentLevel, int nextPlayable, int starsAmount)
     {
-        saveData.nextLevel = currentLevel + 1;
+        saveData.nextLevel = nextPlayable;
         saveData.levelStars[currentLevel - 1] = starsAmount;
         saveData.Save();
     }

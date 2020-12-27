@@ -41,10 +41,10 @@ public class LevelManager : MonoBehaviour
 
     public void VictoryOrLoseScreen(bool victory)
     {
-        GameObject winGameObj = GameObject.Find("WinOrLose");
-        if (winGameObj != null)
+        GameObject outcomeGameObj = GameObject.Find("WinOrLose");
+        if (outcomeGameObj != null)
         {
-            foreach (Transform child in winGameObj.transform)
+            foreach (Transform child in outcomeGameObj.transform)
             {
                 string outcome = victory ? "Win" : "Lose";
                 if (child.name == outcome)
@@ -77,7 +77,10 @@ public class LevelManager : MonoBehaviour
         GameManager gameManager = GameManager.GetGameManager();
         if (gameManager)
         {
-            gameManager.UpdateSave(levelNumber, startsAmount);
+            var nextPlayable = levelNumber >= gameManager.saveData.nextLevel ?
+                                    levelNumber + 1:
+                                    gameManager.saveData.nextLevel;
+            gameManager.UpdateSave(levelNumber, nextPlayable, startsAmount);
         }
     }
 

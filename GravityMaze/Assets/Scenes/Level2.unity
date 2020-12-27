@@ -570,6 +570,11 @@ PrefabInstance:
       propertyPath: totalPointsOfLevel
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8094114411542386351, guid: 189003559e4138e459a931815249ba25,
+        type: 3}
+      propertyPath: levelNumber
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189003559e4138e459a931815249ba25, type: 3}
 --- !u!1 &611457299
@@ -3124,11 +3129,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WinOrLose
-      objectReference: {fileID: 0}
-    - target: {fileID: 610075261973950363, guid: 2b58b4b9da3752a47a09219073cb40c7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b58b4b9da3752a47a09219073cb40c7, type: 3}
