@@ -69,14 +69,16 @@ public class LevelManager : MonoBehaviour
 
     public void EndLevel()
     {
-        PointManager.AddPoint();
-        CalculateStarsAmount();
-        VictoryOrLoseScreen(true);
-        HideScreenAlien();
-
         GameManager gameManager = GameManager.GetGameManager();
         if (gameManager)
         {
+            gameManager.StopBackgroundMusic();
+
+            PointManager.AddPoint();
+            CalculateStarsAmount();
+            VictoryOrLoseScreen(true);
+            HideScreenAlien();
+
             var nextPlayable = levelNumber >= gameManager.saveData.nextLevel ?
                                     levelNumber + 1 :
                                     gameManager.saveData.nextLevel;
@@ -90,6 +92,7 @@ public class LevelManager : MonoBehaviour
         GameManager gameManager = GameManager.GetGameManager();
         if (gameManager)
         {
+            gameManager.StopBackgroundMusic();
             gameManager.SetPausableObjectsMovement(false);
         }
 

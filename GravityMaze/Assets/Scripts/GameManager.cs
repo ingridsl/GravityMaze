@@ -86,4 +86,13 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void StopBackgroundMusic()
+    {
+        GameObject musicGameObj = GameObject.Find("Music");
+        var musicComponent = musicGameObj.GetComponent<AudioSource>();
+        if (musicComponent != null) {
+            musicComponent.Pause();
+        }
+    }
 }
