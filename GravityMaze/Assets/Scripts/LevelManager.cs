@@ -69,27 +69,28 @@ public class LevelManager : MonoBehaviour
 
     public void EndLevel()
     {
+        PointManager.AddPoint();
         CalculateStarsAmount();
         VictoryOrLoseScreen(true);
         HideScreenAlien();
-        PointManager.AddPoint();
 
         GameManager gameManager = GameManager.GetGameManager();
         if (gameManager)
         {
             var nextPlayable = levelNumber >= gameManager.saveData.nextLevel ?
-                                    levelNumber + 1:
+                                    levelNumber + 1 :
                                     gameManager.saveData.nextLevel;
             gameManager.UpdateSave(levelNumber, nextPlayable, startsAmount);
+            gameManager.SetPausableObjectsMovement(false);
         }
     }
 
     public void GameOver()
     {
-        GameObject ballGameObj = GameObject.Find("Ball");
-        if (ballGameObj != null)
+        GameManager gameManager = GameManager.GetGameManager();
+        if (gameManager)
         {
-            ballGameObj.GetComponent<FollowGyro>().canMove = false;
+            gameManager.SetPausableObjectsMovement(false);
         }
 
         startsAmount = 0;

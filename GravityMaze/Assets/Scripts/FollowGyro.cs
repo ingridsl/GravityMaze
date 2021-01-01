@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowGyro : MonoBehaviour
+public class FollowGyro : MovingObject
 { 
     [Header("Logic")]
     [SerializeField] private Quaternion baseRotation = new Quaternion(0, 0, 1, 0);
@@ -15,8 +15,6 @@ public class FollowGyro : MonoBehaviour
     private readonly float idleProtectionX = 0.03f;
 
     private readonly float limitXY = 4.7f;
-
-    public bool canMove = false;
 
     // Start is called before the first frame update
     void Start()

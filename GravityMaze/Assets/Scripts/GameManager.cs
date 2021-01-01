@@ -59,4 +59,31 @@ public class GameManager : MonoBehaviour
     {
         saveData = SaveData.NewSave();
     }
+
+    public void SetPausableObjectsMovement(bool canMove)
+    {
+
+
+        GameObject pausableGameObj = GameObject.Find("Pausable");
+        if (pausableGameObj != null)
+        {
+            var obstaclesAnimator = pausableGameObj.GetComponent<Animator>();
+            obstaclesAnimator.enabled = false;
+
+            foreach (Transform child in pausableGameObj.transform)
+            {
+                if (child.transform.tag == "Player")
+                {
+                    child.GetComponent<FollowGyro>().canMove = canMove;
+                }
+                else if (child.transform.tag == "Enemy")
+                {
+                    child.GetComponent<EnemyManager>().canMove = canMove;
+
+                    var enemyAnimator = child.GetComponent<Animator>();
+                    enemyAnimator.enabled = false;
+                }
+            }
+        }
+    }
 }

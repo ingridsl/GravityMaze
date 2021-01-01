@@ -53,37 +53,27 @@ public class PauseHandler : MonoBehaviour
 
     public void PauseMenuClick()
     {
-
-        GameObject pausableGameObj = GameObject.Find("Pausable");
-        if (pausableGameObj != null)
+        GameManager gameManager = GameManager.GetGameManager();
+        if (gameManager)
         {
-            foreach (Transform child in pausableGameObj.transform)
-            {
-                if (child.transform.name == "Ball")
-                {
-                    child.GetComponent<FollowGyro>().canMove = false;
-                    //pausar movimentação dos inimigos, quando existirem
-                }
-            }
+            gameManager.SetPausableObjectsMovement(false);
         }
 
-
-        GameObject pauseGameObj = GameObject.Find("PauseObjects");
-        if (pauseGameObj != null)
-        {
-            foreach (Transform child in pauseGameObj.transform)
-            {
-                if (child.name == "PauseMenu")
-                {
-                    child.gameObject.SetActive(true);
-                    return;
-                }
-            }
-
-        }
+        SetPauseMenu(true);
     }
 
     public void PlayClick()
+    {
+        SetPauseMenu(false);
+
+        GameManager gameManager = GameManager.GetGameManager();
+        if (gameManager)
+        {
+            gameManager.SetPausableObjectsMovement(true);
+        }
+    }
+
+    public void SetPauseMenu(bool active)
     {
         GameObject pauseGameObj = GameObject.Find("PauseObjects");
         if (pauseGameObj != null)
@@ -92,20 +82,9 @@ public class PauseHandler : MonoBehaviour
             {
                 if (child.name == "PauseMenu")
                 {
-                    child.gameObject.SetActive(false);
+                    child.gameObject.SetActive(active);
                 }
             }
-        }
-
-        GameObject pausableGameObj = GameObject.Find("Pausable");
-        if (pausableGameObj != null)
-        {
-            foreach (Transform child in pausableGameObj.transform)
-            {
-                child.GetComponent<FollowGyro>().canMove = true;
-                //pausar movimentação dos inimitos, quando existirem
-            }
-
         }
     }
 }

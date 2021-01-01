@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : MovingObject
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        canMove = true;
     }
 
     // Update is called once per frame
