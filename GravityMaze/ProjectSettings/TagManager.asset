@@ -9,6 +9,7 @@ TagManager:
   - Countdown
   - Star
   - ScreenRemovable
+  - Enemy
   layers:
   - Default
   - TransparentFX

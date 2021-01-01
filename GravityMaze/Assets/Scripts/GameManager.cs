@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour
             NewSave();
         }
     }
-    public void UpdateSave(int currentLevel, int starsAmount)
+    public void UpdateSave(int currentLevel, int nextPlayable, int starsAmount)
     {
-        saveData.nextLevel = currentLevel + 1;
+        saveData.nextLevel = nextPlayable;
         saveData.levelStars[currentLevel - 1] = starsAmount;
         saveData.Save();
     }
@@ -58,5 +58,41 @@ public class GameManager : MonoBehaviour
     public void NewSave()
     {
         saveData = SaveData.NewSave();
+    }
+
+    public void SetPausableObjectsMovement(bool canMove)
+    {
+
+
+        GameObject pausableGameObj = GameObject.Find("Pausable");
+        if (pausableGameObj != null)
+        {
+            var obstaclesAnimator = pausableGameObj.GetComponent<Animator>();
+            obstaclesAnimator.enabled = false;
+
+            foreach (Transform child in pausableGameObj.transform)
+            {
+                if (child.transform.tag == "Player")
+                {
+                    child.GetComponent<FollowGyro>().canMove = canMove;
+                }
+                else if (child.transform.tag == "Enemy")
+                {
+                    child.GetComponent<EnemyManager>().canMove = canMove;
+
+                    var enemyAnimator = child.GetComponent<Animator>();
+                    enemyAnimator.enabled = false;
+                }
+            }
+        }
+    }
+
+    public void StopBackgroundMusic()
+    {
+        GameObject musicGameObj = GameObject.Find("Music");
+        var musicComponent = musicGameObj.GetComponent<AudioSource>();
+        if (musicComponent != null) {
+            musicComponent.Pause();
+        }
     }
 }

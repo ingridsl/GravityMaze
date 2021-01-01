@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     {
         return GameObject.Find("LevelManager").GetComponent(typeof(LevelManager)) as LevelManager;
     }
+
     public void CalculateStarsAmount()
     {
         float pointsPlayer = pointsOnLevel;
@@ -38,38 +39,17 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void EndLevel()
+    public void VictoryOrLoseScreen(bool victory)
     {
-        CalculateStarsAmount();
-
-        GameObject winGameObj = GameObject.Find("WinOrLose");
-        if (winGameObj != null)
+        GameObject outcomeGameObj = GameObject.Find("WinOrLose");
+        if (outcomeGameObj != null)
         {
-            foreach (Transform child in winGameObj.transform)
+            foreach (Transform child in outcomeGameObj.transform)
             {
-                if (child.name == "Win")
+                string outcome = victory ? "Win" : "Lose";
+                if (child.name == outcome)
                 {
                     child.gameObject.SetActive(true);
-                    continue;
-                }
-            }
-
-        }
-
-        GameObject uiGameObj = GameObject.Find("UI");
-        if (uiGameObj != null)
-        {
-            foreach (Transform child in uiGameObj.transform)
-            {
-                if (child.tag == "Alien")
-                {
-                    child.gameObject.SetActive(false);
-                    PointManager.AddPoint();
-                    GameManager gameManager = GameManager.GetGameManager();
-                    if (gameManager)
-                    {
-                        gameManager.UpdateSave(levelNumber, startsAmount);
-                    }
                     return;
                 }
             }
@@ -77,5 +57,50 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    
+    public void HideScreenAlien()
+    {
+        var aliens = GameObject.FindGameObjectsWithTag("Alien");
+        if (aliens != null)
+        {
+            aliens[0].SetActive(false);
+        }
+    }
+
+
+    public void EndLevel()
+    {
+        GameManager gameManager = GameManager.GetGameManager();
+        if (gameManager)
+        {
+            gameManager.StopBackgroundMusic();
+
+            PointManager.AddPoint();
+            CalculateStarsAmount();
+            VictoryOrLoseScreen(true);
+            HideScreenAlien();
+
+            var nextPlayable = levelNumber >= gameManager.saveData.nextLevel ?
+                                    levelNumber + 1 :
+                                    gameManager.saveData.nextLevel;
+            gameManager.UpdateSave(levelNumber, nextPlayable, startsAmount);
+            gameManager.SetPausableObjectsMovement(false);
+        }
+    }
+
+    public void GameOver()
+    {
+        GameManager gameManager = GameManager.GetGameManager();
+        if (gameManager)
+        {
+            gameManager.StopBackgroundMusic();
+            gameManager.SetPausableObjectsMovement(false);
+        }
+
+        startsAmount = 0;
+        pointsOnLevel = 0;
+
+        HideScreenAlien();
+        VictoryOrLoseScreen(false);
+    }
+
 }

@@ -33,7 +33,7 @@ public class StarsManager : MonoBehaviour
         if (levelManager != null)
         {
             Star1.transform.GetComponent<Image>().sprite = GoldenStar;
-            if (levelManager.startsAmount == 2)
+            if (levelManager.startsAmount >= 2)
             {
                 Star2.transform.GetComponent<Image>().sprite = GoldenStar;
                 if (levelManager.startsAmount == 3)
