@@ -11,6 +11,7 @@ public class SaveData
                                         0, 0, 0, 0, 0, //10
                                         0, 0, 0, 0, 0, //15
                                         };
+    public float sensitivity = 100.0f;
 
     static public SaveData NewSave()
     {
