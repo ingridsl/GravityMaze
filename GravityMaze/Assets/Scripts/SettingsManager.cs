@@ -15,7 +15,11 @@ public class SettingsManager : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.GetGameManager();
-        if (gameManager && gameManager.saveData != null)
+        if (gameManager == null)
+        {
+            Errors.GameManagerNotFound();
+        }
+        else if (gameManager && gameManager.saveData != null)
         {
             mSlider.value = gameManager.saveData.sensitivity;
             sensitivityOriginal = mSlider.value;
@@ -24,8 +28,15 @@ public class SettingsManager : MonoBehaviour
 
     public void UpdateSettings()
     {
-        gameManager.saveData.sensitivity = mSlider.value;
-        gameManager.saveData.Save();
+        if (gameManager != null)
+        {
+            gameManager.saveData.sensitivity = mSlider.value;
+            gameManager.saveData.Save();
+        }
+        else
+        {
+            Errors.GameManagerNotFound();
+        }
     }
 
     // Update is called once per frame

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -16,26 +17,51 @@ public class SaveData
     static public SaveData NewSave()
     {
         SaveData saveData = new SaveData();
-        var teste = Application.persistentDataPath;
-        string saveStatePath = Path.Combine(Application.persistentDataPath, "playerSave.json");
-        File.WriteAllText(saveStatePath, JsonUtility.ToJson(saveData, true));
+        try
+        {
+
+            var path = Application.persistentDataPath;
+            Debug.Log("Saving game on path : " + path);
+            string saveStatePath = Path.Combine(path, "playerSave.json");
+            File.WriteAllText(saveStatePath, JsonUtility.ToJson(saveData, true));
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
         return saveData;
     }
 
     public void Save()
-    {        
-        var teste = Application.persistentDataPath;
-        string saveStatePath = Path.Combine(Application.persistentDataPath , "playerSave.json");
-        File.WriteAllText(saveStatePath, JsonUtility.ToJson(this, true));
+    {
+        try
+        {
+            var path = Application.persistentDataPath;
+            Debug.Log("Saving game on path : " + path);
+            string saveStatePath = Path.Combine(path, "playerSave.json");
+            File.WriteAllText(saveStatePath, JsonUtility.ToJson(this, true));
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
     }
 
     public static SaveData LoadSave()
     {
         string path = Application.persistentDataPath + "/playerSave.json";
+        Debug.Log("Loading game from path : " + path);
         if (File.Exists(path))
         {
-            var loadedGame = JsonUtility.FromJson<SaveData>(File.ReadAllText(path));
-            return loadedGame;
+            try
+            {
+                var loadedGame = JsonUtility.FromJson<SaveData>(File.ReadAllText(path));
+                return loadedGame;
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
         return null;
     }

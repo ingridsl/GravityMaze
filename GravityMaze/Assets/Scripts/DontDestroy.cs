@@ -8,6 +8,10 @@ public class DontDestroy : MonoBehaviour
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
+        if (objs.Length == 0)
+        {
+            Errors.GameControllerNotFound();
+        }
 
         if (objs.Length > 1)
         {

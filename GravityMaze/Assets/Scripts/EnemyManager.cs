@@ -25,6 +25,10 @@ public class EnemyManager : MovingObject
             {
                 levelManager.GameOver();
             }
+            else
+            {
+                Errors.LevelManagerNotFound();
+            }
         }
     }
 }

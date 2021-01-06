@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\PauseHandler.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\SettingsSave.cs" />
+    <Compile Include="Assets\Scripts\Errors.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Assets\Sprites\UI\Space Shooter Game GUI\TXT\license.txt" />

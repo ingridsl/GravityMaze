@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,7 +38,16 @@ public class GameManager : MonoBehaviour
 
     static public GameManager GetGameManager()
     {
-        return GameObject.Find("GameManager").GetComponent(typeof(GameManager)) as GameManager;
+        GameManager gameManagerObj = null;
+        try
+        {
+            gameManagerObj = GameObject.Find("GameManager").GetComponent(typeof(GameManager)) as GameManager;
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
+        return gameManagerObj;
     }
 
     public void LoadSave()
@@ -67,8 +77,11 @@ public class GameManager : MonoBehaviour
         GameObject pausableGameObj = GameObject.Find("Pausable");
         if (pausableGameObj != null)
         {
+           
             var obstaclesAnimator = pausableGameObj.GetComponent<Animator>();
-            obstaclesAnimator.enabled = false;
+            if (obstaclesAnimator != null) {
+                obstaclesAnimator.enabled = false;
+            }
 
             foreach (Transform child in pausableGameObj.transform)
             {

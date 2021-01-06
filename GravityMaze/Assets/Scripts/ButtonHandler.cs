@@ -51,7 +51,6 @@ public class ButtonHandler : MonoBehaviour
                 LevelSelectionActivation(false);
                 break;
             case (int) ActivatedScreen.Settings:
-                //TODO - UNDO CHANGES
                 SettingsActivation(false);
                 break;
             default:
