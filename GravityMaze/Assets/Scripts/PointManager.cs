@@ -5,10 +5,16 @@ using UnityEngine;
 public class PointManager : MonoBehaviour
 {
     public AudioSource audioSource;
+    static LevelManager levelManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        levelManager = LevelManager.GetLevelManager();
+        if(levelManager == null)
+        {
+            Errors.LevelManagerNotFound();
+        }
     }
 
     // Update is called once per frame
@@ -30,10 +36,14 @@ public class PointManager : MonoBehaviour
 
     public static void AddPoint()
     {
-        var levelManager = LevelManager.GetLevelManager();
+        levelManager = LevelManager.GetLevelManager();
         if (levelManager != null)
         {
             levelManager.pointsOnLevel++;
+        }
+        else
+        {
+            Errors.LevelManagerNotFound();
         }
     }
 }

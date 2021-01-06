@@ -5,10 +5,15 @@ using UnityEngine;
 public class PauseHandler : MonoBehaviour
 {
     public bool isTutorial = false;
+    GameManager gameManager = null;
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager = GameManager.GetGameManager();
+        if (gameManager == null)
+        {
+            Errors.GameManagerNotFound();
+        }
     }
 
     // Update is called once per frame
@@ -53,23 +58,27 @@ public class PauseHandler : MonoBehaviour
 
     public void PauseMenuClick()
     {
-        GameManager gameManager = GameManager.GetGameManager();
-        if (gameManager)
+        if (gameManager != null)
         {
             gameManager.SetPausableObjectsMovement(false);
+            SetPauseMenu(true);
         }
-
-        SetPauseMenu(true);
+        else
+        {
+            Errors.GameManagerNotFound();
+        }
     }
 
     public void PlayClick()
     {
-        SetPauseMenu(false);
-
-        GameManager gameManager = GameManager.GetGameManager();
-        if (gameManager)
+        if (gameManager != null)
         {
+            SetPauseMenu(false);
             gameManager.SetPausableObjectsMovement(true);
+        }
+        else
+        {
+            Errors.GameManagerNotFound();
         }
     }
 

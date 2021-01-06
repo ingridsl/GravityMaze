@@ -42,6 +42,10 @@ public class StarsManager : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            Errors.LevelManagerNotFound();
+        }
     }
     
 }
