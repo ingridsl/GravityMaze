@@ -8,10 +8,16 @@ public class LevelTable : MonoBehaviour
 {
 
     public Sprite GoldenStar;
+    GameManager gameManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.GetGameManager();
+        if (gameManager == null)
+        {
+            Errors.GameManagerNotFound();
+        }
         EnableLevels();
     }
 
@@ -23,8 +29,7 @@ public class LevelTable : MonoBehaviour
 
     void EnableLevels()
     {
-        GameManager gameManager = GameManager.GetGameManager();
-        if (gameManager)
+        if (gameManager != null)
         {
             GameObject levelTable = GameObject.Find("LevelTable");
             if (levelTable != null)
@@ -71,6 +76,10 @@ public class LevelTable : MonoBehaviour
                 }
 
             }
+        }
+        else
+        {
+            Errors.GameManagerNotFound();
         }
     }
 }

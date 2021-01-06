@@ -25,6 +25,10 @@ public class EndLevel : MonoBehaviour
             {
                 levelManager.EndLevel();
             }
+            else
+            {
+                Errors.LevelManagerNotFound();
+            }
         }
     }
 }

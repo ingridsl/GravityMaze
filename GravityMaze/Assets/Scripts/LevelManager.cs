@@ -8,9 +8,16 @@ public class LevelManager : MonoBehaviour
     public int totalPointsOfLevel = 3; //amount of energy + 1 victory point
     public int levelNumber = 0;
     public int startsAmount = 0;
+
+    GameManager gameManager = null;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.GetGameManager();
+        if (gameManager == null)
+        {
+            Errors.GameManagerNotFound();
+        }
     }
 
     // Update is called once per frame
@@ -69,8 +76,7 @@ public class LevelManager : MonoBehaviour
 
     public void EndLevel()
     {
-        GameManager gameManager = GameManager.GetGameManager();
-        if (gameManager)
+        if (gameManager != null)
         {
             gameManager.StopBackgroundMusic();
 
@@ -85,22 +91,29 @@ public class LevelManager : MonoBehaviour
             gameManager.UpdateSave(levelNumber, nextPlayable, startsAmount);
             gameManager.SetPausableObjectsMovement(false);
         }
+        else
+        {
+            Errors.GameManagerNotFound();
+        }
     }
 
     public void GameOver()
     {
-        GameManager gameManager = GameManager.GetGameManager();
-        if (gameManager)
+        if (gameManager != null)
         {
             gameManager.StopBackgroundMusic();
             gameManager.SetPausableObjectsMovement(false);
+
+            startsAmount = 0;
+            pointsOnLevel = 0;
+
+            HideScreenAlien();
+            VictoryOrLoseScreen(false);
         }
-
-        startsAmount = 0;
-        pointsOnLevel = 0;
-
-        HideScreenAlien();
-        VictoryOrLoseScreen(false);
+        else
+        {
+            Errors.GameManagerNotFound();
+        }
     }
 
 }
