@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
+    [SerializeField]
+    enum ActivatedScreen
+    {
+        MainMenu,
+        LevelSelection,
+        Settings,
+        Info
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +37,26 @@ public class ButtonHandler : MonoBehaviour
         MainMenuActivation(false);
     }
 
-    public void SwitchToMainMenu()
+    public void SwitchToSettings()
     {
-        LevelSelectionActivation(false);
+        SettingsActivation(true);
+        MainMenuActivation(false);
+    }
+
+    public void SwitchToMainMenu(int currentScreen)
+    {
+        switch (currentScreen)
+        {
+            case (int) ActivatedScreen.LevelSelection:
+                LevelSelectionActivation(false);
+                break;
+            case (int) ActivatedScreen.Settings:
+                //TODO - UNDO CHANGES
+                SettingsActivation(false);
+                break;
+            default:
+                break;
+        }
         MainMenuActivation(true);
     }
 
@@ -59,6 +85,18 @@ public class ButtonHandler : MonoBehaviour
     private void LevelSelectionActivation(bool isActive)
     {
         GameObject levelSelectionObj = GameObject.Find("LevelSelection");
+        if (levelSelectionObj != null)
+        {
+            foreach (Transform child in levelSelectionObj.transform)
+            {
+                child.gameObject.SetActive(isActive);
+            }
+        }
+    }
+
+    private void SettingsActivation(bool isActive)
+    {
+        GameObject levelSelectionObj = GameObject.Find("Settings");
         if (levelSelectionObj != null)
         {
             foreach (Transform child in levelSelectionObj.transform)
