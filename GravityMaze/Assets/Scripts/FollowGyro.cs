@@ -39,12 +39,12 @@ public class FollowGyro : MovingObject
         {
             gyroMovement = GyroManager.Instance.GetGyroRotation() * baseRotation;
             //gyro x is map y. gyro y is map x
-            float moveBallX = (Mathf.Abs(gyroMovement.x) > idleProtectionX) ?
-                                    gyroMovement.x : 0f;
-            float moveBallY = (Mathf.Abs(gyroMovement.y) > idleProtectionY) ?
+            float moveBallX = (Mathf.Abs(gyroMovement.y) > idleProtectionX) ?
                                     gyroMovement.y : 0f;
+            float moveBallY = (Mathf.Abs(gyroMovement.x) > idleProtectionY) ?
+                                    gyroMovement.x : 0f;
 
-            Vector2 movement = new Vector2(-moveBallX * speed, -moveBallY * speed);
+            Vector2 movement = new Vector2(-moveBallX * speed, moveBallY * speed);
             Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
             if (Mathf.Abs(finalPosition.y) > limitXY)
             {
@@ -54,6 +54,11 @@ public class FollowGyro : MovingObject
             {
                 finalPosition.x = rb2d.position.x;
             }
+
+
+            Debug.Log("final position : " + finalPosition.ToString() 
+                + " current position : " + rb2d.position
+                + "gyromovement : " + gyroMovement.ToString());
             rb2d.MovePosition(finalPosition);
         }
     }

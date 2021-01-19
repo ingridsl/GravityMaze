@@ -7,9 +7,11 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public SaveData saveData = null;
-    // Start is called before the first frame update
+
     void Awake()
     {
+
+        Debug.Log("GAME MANAGER Awake");
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
         Screen.autorotateToLandscapeRight = true;
@@ -32,8 +34,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //var teste = Screen.orientation;
-        //Screen.orientation = ScreenOrientation.LandscapeRight;
-        //Debug.Log(Screen.orientation.ToString());
+        if (Screen.orientation != ScreenOrientation.LandscapeRight) {
+            Screen.orientation = ScreenOrientation.LandscapeRight;
+            Debug.Log(Screen.orientation.ToString());
+        }
     }
 
     static public GameManager GetGameManager()
