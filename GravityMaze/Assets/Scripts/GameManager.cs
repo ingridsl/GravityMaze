@@ -80,7 +80,11 @@ public class GameManager : MonoBehaviour
            
             var obstaclesAnimator = pausableGameObj.GetComponent<Animator>();
             if (obstaclesAnimator != null) {
-                obstaclesAnimator.enabled = false;
+                obstaclesAnimator.enabled = canMove;
+                if (canMove)
+                {
+                    obstaclesAnimator.Play("Entry", 0);
+                }
             }
 
             foreach (Transform child in pausableGameObj.transform)
@@ -94,7 +98,7 @@ public class GameManager : MonoBehaviour
                     child.GetComponent<EnemyManager>().canMove = canMove;
 
                     var enemyAnimator = child.GetComponent<Animator>();
-                    enemyAnimator.enabled = false;
+                    enemyAnimator.enabled = canMove;
                 }
             }
         }
