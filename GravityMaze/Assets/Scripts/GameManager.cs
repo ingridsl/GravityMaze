@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-
         Debug.Log("GAME MANAGER Awake");
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
@@ -33,7 +32,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //var teste = Screen.orientation;
         if (Screen.orientation != ScreenOrientation.LandscapeRight) {
             Screen.orientation = ScreenOrientation.LandscapeRight;
             Debug.Log(Screen.orientation.ToString());
@@ -65,8 +63,10 @@ public class GameManager : MonoBehaviour
     public void UpdateSave(int currentLevel, int nextPlayable, int starsAmount)
     {
         saveData.nextLevel = nextPlayable;
-        saveData.levelStars[currentLevel - 1] = starsAmount;
-        saveData.Save();
+        if (saveData.levelStars[currentLevel - 1] < starsAmount) {
+            saveData.levelStars[currentLevel - 1] = starsAmount;
+            saveData.Save();
+        }
     }
 
     public void NewSave()
@@ -76,8 +76,6 @@ public class GameManager : MonoBehaviour
 
     public void SetPausableObjectsMovement(bool canMove)
     {
-
-
         GameObject pausableGameObj = GameObject.Find("Pausable");
         if (pausableGameObj != null)
         {

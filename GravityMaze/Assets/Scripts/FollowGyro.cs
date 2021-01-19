@@ -11,14 +11,19 @@ public class FollowGyro : MovingObject
     private Rigidbody2D rb2d;
     public float speed = 15;
 
-    private readonly float idleProtectionY = 0.03f;
-    private readonly float idleProtectionX = 0.03f;
 
+    private float idleProtectionY = Constants.MaximumIdleProtection;
+    private float idleProtectionX = Constants.MaximumIdleProtection;
     private readonly float limitXY = 4.7f;
+    
+    GameManager gameManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.GetGameManager();
+        idleProtectionY = Constants.MaximumIdleProtection / (gameManager.saveData.sensitivity / 100);
+        idleProtectionX = Constants.MaximumIdleProtection / (gameManager.saveData.sensitivity / 100);
         StartCoroutine(StartAfterTime(Constants.COUNTDOWN_TIME));
     }
 

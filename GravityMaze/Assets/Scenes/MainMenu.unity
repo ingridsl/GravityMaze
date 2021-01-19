@@ -5483,7 +5483,6 @@ GameObject:
   - component: {fileID: 1019952207}
   - component: {fileID: 1019952206}
   - component: {fileID: 1019952205}
-  - component: {fileID: 1019952208}
   m_Layer: 5
   m_Name: 7
   m_TagString: Untagged
@@ -5554,7 +5553,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1019952208}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -5922,7 +5921,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1338708605}
   m_HandleRect: {fileID: 1148855707}
   m_Direction: 0
-  m_MinValue: 15
+  m_MinValue: 25
   m_MaxValue: 100
   m_WholeNumbers: 1
   m_Value: 100
