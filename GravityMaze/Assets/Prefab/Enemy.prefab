@@ -165,3 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ae62ef5ed84bc4d9b6844c06d1a89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 0
+  isBomb: 0
+  enemyEatingPrefab: {fileID: 4806206351221411899, guid: a360e1b9f4ac1e542b0cdf5a1ebd2267,
+    type: 3}
