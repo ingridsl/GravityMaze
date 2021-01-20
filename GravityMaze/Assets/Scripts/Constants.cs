@@ -7,4 +7,6 @@ public static class Constants
 {
     public static readonly float COUNTDOWN_TIME = 3f;
     public static readonly float MaximumIdleProtection = 0.03f;
+    public static readonly int LandscapeRIGHT = 1;
+    public static readonly int LandscapeLEFT = 0;
 }

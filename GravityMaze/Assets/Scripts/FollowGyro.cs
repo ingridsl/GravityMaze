@@ -49,7 +49,14 @@ public class FollowGyro : MovingObject
             float moveBallY = (Mathf.Abs(gyroMovement.x) > idleProtectionY) ?
                                     gyroMovement.x : 0f;
 
-            Vector2 movement = new Vector2(-moveBallX * speed, moveBallY * speed);
+            Vector2 movement = new Vector2();
+            if (Screen.orientation == ScreenOrientation.LandscapeRight){
+                movement = new Vector2(-moveBallX * speed, moveBallY * speed);
+            }
+            else
+            {
+                movement = new Vector2(-moveBallX * speed, -moveBallY * speed);
+            }
             Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
             if (Mathf.Abs(finalPosition.y) > limitXY)
             {

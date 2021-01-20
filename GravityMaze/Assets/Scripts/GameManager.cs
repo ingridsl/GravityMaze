@@ -13,11 +13,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("GAME MANAGER Awake");
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
-        Screen.autorotateToLandscapeRight = true;
+        Screen.autorotateToLandscapeRight = false;
         Screen.autorotateToLandscapeLeft = false;
-
-        Screen.orientation = ScreenOrientation.LandscapeRight;
-        Debug.Log(Screen.orientation.ToString());
     }
     private void Start()
     {
@@ -32,7 +29,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Screen.orientation != ScreenOrientation.LandscapeRight) {
+        if (Screen.orientation == ScreenOrientation.LandscapeRight 
+            && saveData.orientation == Constants.LandscapeLEFT) {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+            Debug.Log(Screen.orientation.ToString());
+        }else if (Screen.orientation == ScreenOrientation.LandscapeLeft
+            && saveData.orientation == Constants.LandscapeRIGHT)
+        {
             Screen.orientation = ScreenOrientation.LandscapeRight;
             Debug.Log(Screen.orientation.ToString());
         }

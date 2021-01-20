@@ -13,16 +13,11 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        Debug.Log("Level Start --- BEGIN");
-        Debug.Log(Screen.orientation.ToString());
-
         gameManager = GameManager.GetGameManager();
         if (gameManager == null)
         {
             Errors.GameManagerNotFound();
         }
-        Debug.Log("Level Start --- END");
     }
 
     // Update is called once per frame

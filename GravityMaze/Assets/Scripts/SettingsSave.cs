@@ -28,6 +28,6 @@ public class SettingsSave : MonoBehaviour
 
     public void Undo()
     {
-        settingsManager.UndoSettings();
+        settingsManager.DefaultSettings();
     }
 }

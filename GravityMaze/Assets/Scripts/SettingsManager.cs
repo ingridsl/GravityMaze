@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
-    public Slider mSlider;
+    public Slider percentageSlider;
+    public Slider orientationSlider;
+
     public Text percentageText;
 
     private static float sensitivityOriginal = 100f;
@@ -21,8 +23,9 @@ public class SettingsManager : MonoBehaviour
         }
         else if (gameManager && gameManager.saveData != null)
         {
-            mSlider.value = gameManager.saveData.sensitivity;
-            sensitivityOriginal = mSlider.value;
+            percentageSlider.value = gameManager.saveData.sensitivity;
+            orientationSlider.value = gameManager.saveData.orientation;
+            sensitivityOriginal = percentageSlider.value;
         }
     }
 
@@ -30,7 +33,8 @@ public class SettingsManager : MonoBehaviour
     {
         if (gameManager != null)
         {
-            gameManager.saveData.sensitivity = mSlider.value;
+            gameManager.saveData.sensitivity = percentageSlider.value;
+            gameManager.saveData.orientation = (int)orientationSlider.value;
             gameManager.saveData.Save();
         }
         else
@@ -42,16 +46,17 @@ public class SettingsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        percentageText.text = mSlider.value.ToString() + "%";
+        percentageText.text = percentageSlider.value.ToString() + "%";
     }
     static public SettingsManager GetSettingsManager()
     {
         return GameObject.Find("SettingsManager").GetComponent(typeof(SettingsManager)) as SettingsManager;
     }
 
-    public void UndoSettings()
+    public void DefaultSettings()
     {
-        mSlider.value = sensitivityOriginal;
+        percentageSlider.value = sensitivityOriginal;
+        orientationSlider.value = Constants.LandscapeRIGHT;
     }
 
 }
