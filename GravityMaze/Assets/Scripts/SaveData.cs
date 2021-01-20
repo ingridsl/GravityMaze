@@ -13,6 +13,7 @@ public class SaveData
                                         0, 0, 0, 0, 0, //15
                                         };
     public float sensitivity = 100.0f;
+    public int orientation = 1;
 
     static public SaveData NewSave()
     {

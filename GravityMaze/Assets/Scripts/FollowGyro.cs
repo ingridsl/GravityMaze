@@ -11,14 +11,19 @@ public class FollowGyro : MovingObject
     private Rigidbody2D rb2d;
     public float speed = 15;
 
-    private readonly float idleProtectionY = 0.03f;
-    private readonly float idleProtectionX = 0.03f;
 
+    private float idleProtectionY = Constants.MaximumIdleProtection;
+    private float idleProtectionX = Constants.MaximumIdleProtection;
     private readonly float limitXY = 4.7f;
+    
+    GameManager gameManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.GetGameManager();
+        idleProtectionY = Constants.MaximumIdleProtection / (gameManager.saveData.sensitivity / 100);
+        idleProtectionX = Constants.MaximumIdleProtection / (gameManager.saveData.sensitivity / 100);
         StartCoroutine(StartAfterTime(Constants.COUNTDOWN_TIME));
     }
 
@@ -44,7 +49,14 @@ public class FollowGyro : MovingObject
             float moveBallY = (Mathf.Abs(gyroMovement.x) > idleProtectionY) ?
                                     gyroMovement.x : 0f;
 
-            Vector2 movement = new Vector2(-moveBallX * speed, moveBallY * speed);
+            Vector2 movement = new Vector2();
+            if (Screen.orientation == ScreenOrientation.LandscapeRight){
+                movement = new Vector2(-moveBallX * speed, moveBallY * speed);
+            }
+            else
+            {
+                movement = new Vector2(-moveBallX * speed, -moveBallY * speed);
+            }
             Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
             if (Mathf.Abs(finalPosition.y) > limitXY)
             {

@@ -33,13 +33,19 @@ public class ButtonHandler : MonoBehaviour
 
     public void SwitchToSelectLevelTable()
     {
-        LevelSelectionActivation(true);
+        SubMenuActivation(true, "LevelSelection");
         MainMenuActivation(false);
     }
 
     public void SwitchToSettings()
     {
-        SettingsActivation(true);
+        SubMenuActivation(true, "Settings");
+        MainMenuActivation(false);
+    }
+
+    public void SwitchToInfo()
+    {
+        SubMenuActivation(true, "Info");
         MainMenuActivation(false);
     }
 
@@ -48,27 +54,20 @@ public class ButtonHandler : MonoBehaviour
         switch (currentScreen)
         {
             case (int) ActivatedScreen.LevelSelection:
-                LevelSelectionActivation(false);
+                SubMenuActivation(false, "LevelSelection");
                 break;
             case (int) ActivatedScreen.Settings:
-                SettingsActivation(false);
+                SubMenuActivation(false, "Settings");
+                break;
+            case (int)ActivatedScreen.Info:
+                SubMenuActivation(false, "Info");
                 break;
             default:
                 break;
         }
         MainMenuActivation(true);
     }
-
-    public void OpenSettings()
-    {
-
-    }
-
-    public void OpenInfo()
-    {
-
-    }
-
+    
     private void MainMenuActivation(bool isActive)
     {
         GameObject mainMenuObj = GameObject.Find("MainMenu");
@@ -80,28 +79,15 @@ public class ButtonHandler : MonoBehaviour
             }
         }
     }
-
-    private void LevelSelectionActivation(bool isActive)
+    private void SubMenuActivation(bool isActive, string subMenu)
     {
-        GameObject levelSelectionObj = GameObject.Find("LevelSelection");
-        if (levelSelectionObj != null)
+        GameObject subMenuObj = GameObject.Find(subMenu);
+        if (subMenuObj != null)
         {
-            foreach (Transform child in levelSelectionObj.transform)
+            foreach (Transform child in subMenuObj.transform)
             {
                 child.gameObject.SetActive(isActive);
             }
         }
-    }
-
-    private void SettingsActivation(bool isActive)
-    {
-        GameObject levelSelectionObj = GameObject.Find("Settings");
-        if (levelSelectionObj != null)
-        {
-            foreach (Transform child in levelSelectionObj.transform)
-            {
-                child.gameObject.SetActive(isActive);
-            }
-        }
-    }
+    }    
 }
