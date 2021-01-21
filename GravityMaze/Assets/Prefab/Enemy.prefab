@@ -169,3 +169,5 @@ MonoBehaviour:
   isBomb: 0
   enemyEatingPrefab: {fileID: 4806206351221411899, guid: a360e1b9f4ac1e542b0cdf5a1ebd2267,
     type: 3}
+  bombExplodingPrefab: {fileID: 4905870103107555663, guid: 352cf505ce1d19d4594b31b49b2723a9,
+    type: 3}
