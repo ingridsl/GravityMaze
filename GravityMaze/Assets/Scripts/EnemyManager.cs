@@ -6,6 +6,8 @@ public class EnemyManager : MovingObject
 {
     public bool isBomb = false;
     public Transform enemyEatingPrefab;
+    public Transform bombExplodingPrefab; 
+
     GameManager gameManager = null;
     // Start is called before the first frame update
     void Start()
@@ -29,17 +31,17 @@ public class EnemyManager : MovingObject
         if (collision.gameObject.tag == "Player")
         {
             gameManager.SetPausableObjectsMovement(false);
-            Instantiate(enemyEatingPrefab);
-            var audioSource = enemyEatingPrefab.GetChild(0).GetComponent<AudioSource>();
-            StartCoroutine(playExplosionOrEatingSound(audioSource));
+            if (!isBomb)
+            {
+                Instantiate(enemyEatingPrefab);
+            }
+            else
+            {
+                Instantiate(bombExplodingPrefab);
+            }
 
             StartCoroutine(openGameOverMenu());
         }
-    }
-    IEnumerator playExplosionOrEatingSound(AudioSource audioSource)
-    {
-        yield return new WaitForSeconds(1);
-        audioSource.PlayDelayed(1);
     }
 
     IEnumerator openGameOverMenu()
