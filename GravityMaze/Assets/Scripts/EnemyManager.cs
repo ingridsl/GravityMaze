@@ -4,31 +4,60 @@ using UnityEngine;
 
 public class EnemyManager : MovingObject
 {
+    public bool isBomb = false;
+    public Transform enemyEatingPrefab;
+    public Transform bombExplodingPrefab; 
+
+    GameManager gameManager = null;
     // Start is called before the first frame update
     void Start()
     {
         canMove = true;
+        gameManager = GameManager.GetGameManager();
+        if (gameManager == null)
+        {
+            Errors.GameManagerNotFound();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            LevelManager levelManager = LevelManager.GetLevelManager();
-            if (levelManager != null)
+            gameManager.SetPausableObjectsMovement(false);
+            if (!isBomb)
             {
-                levelManager.GameOver();
+                Instantiate(enemyEatingPrefab);
             }
             else
             {
-                Errors.LevelManagerNotFound();
+                Instantiate(bombExplodingPrefab);
             }
+
+            StartCoroutine(openGameOverMenu());
         }
     }
+
+    IEnumerator openGameOverMenu()
+    {
+        yield return new WaitForSeconds(3);
+
+        LevelManager levelManager = LevelManager.GetLevelManager();
+        if (levelManager != null)
+        {
+            levelManager.GameOver();
+        }
+        else
+        {
+            Errors.LevelManagerNotFound();
+        }
+    }
+
+
 }
