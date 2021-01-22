@@ -2244,6 +2244,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinOrLose
       objectReference: {fileID: 0}
+    - target: {fileID: 610075261973950363, guid: 2b58b4b9da3752a47a09219073cb40c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2390892403433943369, guid: 2b58b4b9da3752a47a09219073cb40c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument

@@ -10,15 +10,11 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-
         Debug.Log("GAME MANAGER Awake");
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
-        Screen.autorotateToLandscapeRight = true;
+        Screen.autorotateToLandscapeRight = false;
         Screen.autorotateToLandscapeLeft = false;
-
-        Screen.orientation = ScreenOrientation.LandscapeRight;
-        Debug.Log(Screen.orientation.ToString());
     }
     private void Start()
     {
@@ -33,8 +29,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //var teste = Screen.orientation;
-        if (Screen.orientation != ScreenOrientation.LandscapeRight) {
+        if (Screen.orientation == ScreenOrientation.LandscapeRight 
+            && saveData.orientation == Constants.LandscapeLEFT) {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+            Debug.Log(Screen.orientation.ToString());
+        }else if (Screen.orientation == ScreenOrientation.LandscapeLeft
+            && saveData.orientation == Constants.LandscapeRIGHT)
+        {
             Screen.orientation = ScreenOrientation.LandscapeRight;
             Debug.Log(Screen.orientation.ToString());
         }
@@ -65,8 +66,10 @@ public class GameManager : MonoBehaviour
     public void UpdateSave(int currentLevel, int nextPlayable, int starsAmount)
     {
         saveData.nextLevel = nextPlayable;
-        saveData.levelStars[currentLevel - 1] = starsAmount;
-        saveData.Save();
+        if (saveData.levelStars[currentLevel - 1] < starsAmount) {
+            saveData.levelStars[currentLevel - 1] = starsAmount;
+            saveData.Save();
+        }
     }
 
     public void NewSave()
@@ -76,8 +79,6 @@ public class GameManager : MonoBehaviour
 
     public void SetPausableObjectsMovement(bool canMove)
     {
-
-
         GameObject pausableGameObj = GameObject.Find("Pausable");
         if (pausableGameObj != null)
         {
