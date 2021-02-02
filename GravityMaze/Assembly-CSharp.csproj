@@ -56,6 +56,8 @@
     <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
     <Compile Include="Assets\Scripts\ButtonHandler.cs" />
+    <Compile Include="Assets\Scripts\GameOverAnimation.cs" />
+    <Compile Include="Assets\Assets\Materials\SpaceSkies Free\Demo\Scripts\LookCamera.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\SettingsSave.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\LevelTable.cs" />
+    <Compile Include="Assets\Assets\Materials\SpaceSkies Free\Demo\Scripts\SkyboxChanger.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
@@ -81,7 +84,6 @@
     <Compile Include="Assets\Scripts\FollowGyro.cs" />
     <Compile Include="Assets\Scripts\PauseHandler.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
-    <Compile Include="Assets\Scripts\GameOverAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Assets\Sprites\UI\Space Shooter Game GUI\TXT\license.txt" />
