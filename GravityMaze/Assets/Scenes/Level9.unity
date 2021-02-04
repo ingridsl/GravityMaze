@@ -5554,6 +5554,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 106573156, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671031577, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053510100, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4430572098992551528, guid: bc83a1a0e8dc9f642b52387ca6bfcb01,
         type: 3}
       propertyPath: m_SizeDelta.x

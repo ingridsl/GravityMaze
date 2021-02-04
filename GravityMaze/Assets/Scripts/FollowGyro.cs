@@ -43,30 +43,29 @@ public class FollowGyro : MovingObject
         if (canMove)
         {
             gyroMovement = GyroManager.Instance.GetGyroRotation() * baseRotation;
-            //gyro x is map y. gyro y is map x
-            float moveBallX = (Mathf.Abs(gyroMovement.y) > idleProtectionX) ?
+
+            float absGyroX = Mathf.Abs(gyroMovement.x);
+            float absGyroY = Mathf.Abs(gyroMovement.y);
+
+
+            float moveBallY = (absGyroY > idleProtectionY) ?
                                     gyroMovement.y : 0f;
-            float moveBallY = (Mathf.Abs(gyroMovement.x) > idleProtectionY) ?
+            float moveBallX = (absGyroX > idleProtectionX) ?
                                     gyroMovement.x : 0f;
+            Debug.Log(" gyroMovementX: " + gyroMovement.x + "gyroMovementY: " + gyroMovement.y);
+
+            float speedX = absGyroY > absGyroX ? speed / (2 * (absGyroY / absGyroX)) : speed;
+            float speedY = absGyroX > absGyroY ? speed / (2 * (absGyroX / absGyroY)) : speed;
 
             Vector2 movement = new Vector2();
             if (Screen.orientation == ScreenOrientation.LandscapeRight){
-                movement = new Vector2(-moveBallX * speed, moveBallY * speed);
+                movement = new Vector2(moveBallX * speedX, moveBallY * speedY);
             }
             else
             {
-                movement = new Vector2(-moveBallX * speed, -moveBallY * speed);
+                movement = new Vector2(-moveBallX * speedX, -moveBallY * speedY);
             }
             Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
-            if (Mathf.Abs(finalPosition.y) > limitXY)
-            {
-                finalPosition.y = rb2d.position.y;
-            }
-            else if (Mathf.Abs(finalPosition.x) > limitXY)
-            {
-                finalPosition.x = rb2d.position.x;
-            }
-
 
             Debug.Log("final position : " + finalPosition.ToString() 
                 + " current position : " + rb2d.position
