@@ -13,13 +13,16 @@ public class GameManager : MonoBehaviour
         Debug.Log("GAME MANAGER Awake");
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
-        Screen.autorotateToLandscapeRight = false;
-        Screen.autorotateToLandscapeLeft = false;
     }
     private void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
+        Screen.orientation = ScreenOrientation.LandscapeRight;
+
+        Debug.Log("first time : " + Screen.orientation.ToString());
+        Screen.autorotateToLandscapeRight = false;
+        Screen.autorotateToLandscapeLeft = false;
 
         if (sceneName == "MainMenu")
         {
@@ -29,15 +32,36 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Screen.orientation == ScreenOrientation.LandscapeRight 
-            && saveData.orientation == Constants.LandscapeLEFT) {
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
-            Debug.Log(Screen.orientation.ToString());
-        }else if (Screen.orientation == ScreenOrientation.LandscapeLeft
-            && saveData.orientation == Constants.LandscapeRIGHT)
+        //if (Screen.orientation == ScreenOrientation.LandscapeRight 
+        //    /*&& saveData.orientation == Constants.LandscapeLEFT*/)
+        //{
+
+        //    Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        //    Debug.Log("HAD TO CHANGE : " + Screen.orientation.ToString() 
+        //        + " AUTOROTATE PORTRAIT : " + Screen.autorotateToPortrait);
+        //    Screen.autorotateToLandscapeRight = false;
+        //    Screen.autorotateToLandscapeLeft = true;
+        //}
+        //else if (Screen.orientation == ScreenOrientation.LandscapeLeft
+        //    /*&& saveData.orientation == Constants.LandscapeRIGHT*/)
+        //{
+        //    Screen.orientation = ScreenOrientation.LandscapeRight;
+
+        //    Debug.Log("HAD TO CHANGE : " + Screen.orientation.ToString()
+        //        + " AUTOROTATE PORTRAIT : " + Screen.autorotateToPortrait);
+        //    Screen.autorotateToLandscapeRight = true;
+        //    Screen.autorotateToLandscapeLeft = false;
+        //}
+
+         if (Screen.orientation != ScreenOrientation.LandscapeRight)
         {
             Screen.orientation = ScreenOrientation.LandscapeRight;
-            Debug.Log(Screen.orientation.ToString());
+
+            Debug.Log("HAD TO CHANGE : " + Screen.orientation.ToString()
+                + " AUTOROTATE PORTRAIT : " + Screen.autorotateToPortrait);
+            Screen.autorotateToLandscapeRight = true;
+            Screen.autorotateToLandscapeLeft = false;
         }
     }
 
