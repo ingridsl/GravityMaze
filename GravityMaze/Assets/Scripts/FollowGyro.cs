@@ -6,26 +6,23 @@ using UnityEngine;
 public class FollowGyro : MovingObject
 { 
     [Header("Logic")]
-    [SerializeField] private Quaternion baseRotation = new Quaternion(0, 0, 1, 0);
-    public Quaternion gyroMovement;
     private Rigidbody2D rb2d;
-    public float speed = 10;
-
-
-    private float idleProtectionY = Constants.MaximumIdleProtection;
-    private float idleProtectionX = Constants.MaximumIdleProtection;
-    private readonly float limitXY = 4.7f;
     
+    // Range option so moveSpeedModifier can be modified in Inspector
+    // this variable helps to simulate objects acceleration
+    [Range(0.2f, 2f)]
+    public float moveSpeedModifier = 0.002f;
+
+    // Direction variables that read acceleration input to be added
+    // as velocity to Rigidbody2d component
+    float dirX, dirY;
+
     GameManager gameManager = null;
 
     // Start is called before the first frame update
     void Start()
-    {       
-        gyroMovement = new Quaternion(0, 0, 1, 0);
-
+    {
         gameManager = GameManager.GetGameManager();
-        idleProtectionY = Constants.MaximumIdleProtection / (gameManager.saveData.sensitivity / 100);
-        idleProtectionX = Constants.MaximumIdleProtection / (gameManager.saveData.sensitivity / 100);
         StartCoroutine(StartAfterTime(Constants.COUNTDOWN_TIME));
     }
 
@@ -33,7 +30,7 @@ public class FollowGyro : MovingObject
     {
         yield return new WaitForSeconds(time);
 
-        GyroManager.Instance.EnableGyro();
+        //GyroManager.Instance.EnableGyro();
         rb2d = GetComponent<Rigidbody2D>();
 
         canMove = true;
@@ -44,44 +41,12 @@ public class FollowGyro : MovingObject
     {
         if (canMove)
         {
-            gyroMovement = GyroManager.Instance.GetGyroRotation() * baseRotation;
-
-            float absGyroX = Mathf.Abs(gyroMovement.x);
-            float absGyroY = Mathf.Abs(gyroMovement.y);
-
-
-            float moveBallY = (absGyroX > idleProtectionX) ?
-                                    gyroMovement.x : 0f;
-            float moveBallX = (absGyroY  > idleProtectionY) ?
-                                    gyroMovement.y : 0f;
-            Debug.Log(" gyroMovementX: " + gyroMovement.x +
-                " gyroMovementY: " + gyroMovement.y +
-                " gyroMovementZ: " + gyroMovement.z);
-            Debug.Log(" Screen Orientation: " + Screen.orientation.ToString());
-
-            //in case someday I want to control this speed better. currently formula doesn't work that well, but it was an idea
-            float speedX = /*absGyroY > absGyroX ? speed / (10f * (absGyroY / absGyroX)) :*/ speed;
-            float speedY = /*absGyroX > absGyroY ? speed / (10f * (absGyroX / absGyroY)) : */speed;
-
-            Vector2 movement = new Vector2();
-            if (Screen.orientation == ScreenOrientation.LandscapeRight){
-                movement = new Vector2(-moveBallX * speedX, moveBallY * speedY);
-            }
-            else if(Screen.orientation == ScreenOrientation.LandscapeLeft)
-            {
-                //Landscape Left was disabled. before enable, x and y values should be tested. maybe the sign is wrong
-                movement = new Vector2(-moveBallX * speedX, moveBallY * speedY);
-            }
-            else
-            {
-                Errors.OrientationError();
-            }
-            Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
-
-           //Debug.Log("final position : " + finalPosition.ToString() 
-           //     + " current position : " + rb2d.position
-           //     + "gyromovement : " + gyroMovement.ToString());
-            rb2d.MovePosition(finalPosition);
+            // Getting devices accelerometer data in X and Y direction
+            // multiplied by move speed modifier
+            dirX = Input.acceleration.x * moveSpeedModifier * gameManager.saveData.sensitivity;
+            dirY = Input.acceleration.y * moveSpeedModifier * gameManager.saveData.sensitivity;
+            
+            rb2d.velocity = new Vector2(rb2d.velocity.x + dirX, rb2d.velocity.y + dirY);
         }
     }
 
