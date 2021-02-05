@@ -7,7 +7,7 @@ public class FollowGyro : MovingObject
 { 
     [Header("Logic")]
     [SerializeField] private Quaternion baseRotation = new Quaternion(0, 0, 1, 0);
-    public Quaternion gyroMovement = new Quaternion(0, 0, 1, 0);
+    public Quaternion gyroMovement;
     private Rigidbody2D rb2d;
     public float speed = 10;
 
@@ -20,7 +20,9 @@ public class FollowGyro : MovingObject
 
     // Start is called before the first frame update
     void Start()
-    {
+    {       
+        gyroMovement = new Quaternion(0, 0, 1, 0);
+
         gameManager = GameManager.GetGameManager();
         idleProtectionY = Constants.MaximumIdleProtection / (gameManager.saveData.sensitivity / 100);
         idleProtectionX = Constants.MaximumIdleProtection / (gameManager.saveData.sensitivity / 100);
@@ -52,7 +54,10 @@ public class FollowGyro : MovingObject
                                     gyroMovement.x : 0f;
             float moveBallX = (absGyroY  > idleProtectionY) ?
                                     gyroMovement.y : 0f;
-            Debug.Log(" gyroMovementX: " + gyroMovement.x + " gyroMovementY: " + gyroMovement.y + " gyroMovementZ: " + gyroMovement.z);
+            Debug.Log(" gyroMovementX: " + gyroMovement.x +
+                " gyroMovementY: " + gyroMovement.y +
+                " gyroMovementZ: " + gyroMovement.z);
+            Debug.Log(" Screen Orientation: " + Screen.orientation.ToString());
 
             //in case someday I want to control this speed better. currently formula doesn't work that well, but it was an idea
             float speedX = /*absGyroY > absGyroX ? speed / (10f * (absGyroY / absGyroX)) :*/ speed;
