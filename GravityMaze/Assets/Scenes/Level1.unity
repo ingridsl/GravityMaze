@@ -1919,11 +1919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1671031577, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2053510100, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4430572098992551528, guid: bc83a1a0e8dc9f642b52387ca6bfcb01,
         type: 3}

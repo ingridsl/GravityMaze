@@ -9,7 +9,7 @@ public class FollowGyro : MovingObject
     [SerializeField] private Quaternion baseRotation = new Quaternion(0, 0, 1, 0);
     public Quaternion gyroMovement = new Quaternion(0, 0, 1, 0);
     private Rigidbody2D rb2d;
-    public float speed = 15;
+    public float speed = 10;
 
 
     private float idleProtectionY = Constants.MaximumIdleProtection;
@@ -48,28 +48,34 @@ public class FollowGyro : MovingObject
             float absGyroY = Mathf.Abs(gyroMovement.y);
 
 
-            float moveBallY = (absGyroY > idleProtectionY) ?
-                                    gyroMovement.y : 0f;
-            float moveBallX = (absGyroX > idleProtectionX) ?
+            float moveBallY = (absGyroX > idleProtectionX) ?
                                     gyroMovement.x : 0f;
-            Debug.Log(" gyroMovementX: " + gyroMovement.x + "gyroMovementY: " + gyroMovement.y);
+            float moveBallX = (absGyroY  > idleProtectionY) ?
+                                    gyroMovement.y : 0f;
+            Debug.Log(" gyroMovementX: " + gyroMovement.x + " gyroMovementY: " + gyroMovement.y + " gyroMovementZ: " + gyroMovement.z);
 
-            float speedX = absGyroY > absGyroX ? speed / (2 * (absGyroY / absGyroX)) : speed;
-            float speedY = absGyroX > absGyroY ? speed / (2 * (absGyroX / absGyroY)) : speed;
+            //in case someday I want to control this speed better. currently formula doesn't work that well, but it was an idea
+            float speedX = /*absGyroY > absGyroX ? speed / (10f * (absGyroY / absGyroX)) :*/ speed;
+            float speedY = /*absGyroX > absGyroY ? speed / (10f * (absGyroX / absGyroY)) : */speed;
 
             Vector2 movement = new Vector2();
             if (Screen.orientation == ScreenOrientation.LandscapeRight){
-                movement = new Vector2(moveBallX * speedX, moveBallY * speedY);
+                movement = new Vector2(-moveBallX * speedX, moveBallY * speedY);
+            }
+            else if(Screen.orientation == ScreenOrientation.LandscapeLeft)
+            {
+                //Landscape Left was disabled. before enable, x and y values should be tested. maybe the sign is wrong
+                movement = new Vector2(-moveBallX * speedX, moveBallY * speedY);
             }
             else
             {
-                movement = new Vector2(-moveBallX * speedX, -moveBallY * speedY);
+                Errors.OrientationError();
             }
             Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
 
-            Debug.Log("final position : " + finalPosition.ToString() 
-                + " current position : " + rb2d.position
-                + "gyromovement : " + gyroMovement.ToString());
+           //Debug.Log("final position : " + finalPosition.ToString() 
+           //     + " current position : " + rb2d.position
+           //     + "gyromovement : " + gyroMovement.ToString());
             rb2d.MovePosition(finalPosition);
         }
     }

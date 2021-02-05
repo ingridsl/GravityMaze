@@ -10,7 +10,8 @@ public static class Errors
         GameManagerNotFound,
         LevelManagerNotFound,
         GameControllerNotFound,
-        SavePathDoesntExist
+        SavePathDoesntExist,
+        OrientationError,
     }
 
     readonly static string gameManagerNotFound = "GameManager was not found";
@@ -33,5 +34,9 @@ public static class Errors
     public static void SavePathDoesntExist()
     {
         Debug.LogError(ErrorCode.SavePathDoesntExist + " : " + savePathDoesntExist);
+    }
+    public static void OrientationError()
+    {
+        Debug.LogError(ErrorCode.OrientationError + " : " + " orientation not allowed");
     }
 }
