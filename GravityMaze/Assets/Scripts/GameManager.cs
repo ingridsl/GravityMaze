@@ -58,9 +58,8 @@ public class GameManager : MonoBehaviour
         {
             Screen.orientation = ScreenOrientation.LandscapeRight;
 
-            Debug.Log("HAD TO CHANGE : " + Screen.orientation.ToString()
-                + " AUTOROTATE PORTRAIT : " + Screen.autorotateToPortrait);
-            Screen.autorotateToLandscapeRight = true;
+            Debug.Log("HAD TO CHANGE : " + Screen.orientation.ToString());
+            Screen.autorotateToLandscapeRight = false;
             Screen.autorotateToLandscapeLeft = false;
         }
     }

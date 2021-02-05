@@ -6,6 +6,9 @@ public class FallManager : MonoBehaviour
 {
     public bool up = false;
     GameManager gameManager = null;
+
+    bool falling = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,23 +30,23 @@ public class FallManager : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Rigidbody2D rb2d = col.gameObject.GetComponent<Rigidbody2D>();
-            Vector2 movement = new Vector2();
-            if (up)
-            {
-                movement = new Vector2(0, 3);
-            }
-            else
-            {
-                movement = new Vector2(0, -3);
-            }
-            Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
-            rb2d.MovePosition(finalPosition);
-
-
-
             gameManager.SetPausableObjectsMovement(false);
-
-            StartCoroutine(openGameOverMenu());
+            falling = true;
+            //while (falling)
+            //{
+                Vector2 movement = new Vector2();
+                if (up)
+                {
+                    movement = new Vector2(0, 15);
+                }
+                else
+                {
+                    movement = new Vector2(0, -15);
+                }
+                Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
+                rb2d.MovePosition(finalPosition);
+                StartCoroutine(openGameOverMenu());
+            //}
         }
     }
 
@@ -51,6 +54,7 @@ public class FallManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
 
+        falling = false;
         LevelManager levelManager = LevelManager.GetLevelManager();
         if (levelManager != null)
         {
