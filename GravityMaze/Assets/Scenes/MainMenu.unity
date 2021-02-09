@@ -5227,12 +5227,12 @@ MonoBehaviour:
   m_Text: "Created by : Ingrid Santana Lopes\n\nAssets from Unity Asset Store :\n 
     \t* 69 Game Over Jingles Pack (Free) \n\t\tTine Schenck - Game Over Jingles Pack
     -  30 Jingle 4\n\t* Absolute Space & Sci-Fi (Free Sample) by Voltz Supreme\n\t*
-    SciFi Music Pack by Adam Bielecki\r\n\t* CasualGameSounds by Dustyroom\n\t* Deep
-    in Space by Breitbarth\r\n\t* Dynamic Space Background Lite by DinV Studio\r\n\t*
-    Planets with Space Background in Flat Style  by DinV Studio\r\n\t* SpaceSkies
-    Free\r by PULSAR BYTES\r\n\t* Free Sound Effects Pack by Olivier Girardot\r\n\nAssets
-    from CraftPix:\n\t* Free Space Shooter Game Objects\n\t* Free Space Shooter Game
-    GUI"
+    Animated Loading Icons\r by David Stenfors\r\n\t* SciFi Music Pack by Adam Bielecki\r\n\t*
+    CasualGameSounds by Dustyroom\n\t* Deep in Space by Breitbarth\r\n\t* Dynamic
+    Space Background Lite by DinV Studio\r\n\t* Planets with Space Background in
+    Flat Style  by DinV Studio\r\n\t* SpaceSkies Free\r by PULSAR BYTES\r\n\t* Free
+    Sound Effects Pack by Olivier Girardot\r\n\nAssets from CraftPix:\n\t* Free Space
+    Shooter Game Objects\n\t* Free Space Shooter Game GUI"
 --- !u!222 &861206553
 CanvasRenderer:
   m_ObjectHideFlags: 0
