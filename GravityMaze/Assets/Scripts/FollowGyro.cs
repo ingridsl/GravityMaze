@@ -8,7 +8,7 @@ public class FollowGyro : MovingObject
     [Header("Logic")]
     private Rigidbody2D rb2d;
     
-    // Range option so moveSpeedModifier can be modified in Inspector
+    // Range option so moveSpeedModifier can be modified in Inspector 
     // this variable helps to simulate objects acceleration
     [Range(0.002f, 2f)]
     public float moveSpeedModifier = 0.002f;

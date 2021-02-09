@@ -40,7 +40,7 @@ public class ButtonHandler : MonoBehaviour
             }
         }
         catch (Exception e)
-        {
+        { 
             Debug.LogException(e);
         }
         StartCoroutine(LoadSceneCoroutine(levelName));

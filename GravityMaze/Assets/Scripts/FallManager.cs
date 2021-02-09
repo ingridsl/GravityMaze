@@ -52,7 +52,7 @@ public class FallManager : MonoBehaviour
 
     IEnumerator OpenGameOverMenu()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3); 
 
         falling = false;
         LevelManager levelManager = LevelManager.GetLevelManager();
