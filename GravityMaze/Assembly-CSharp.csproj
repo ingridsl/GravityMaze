@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\GameOverAnimation.cs" />
     <Compile Include="Assets\Assets\Materials\SpaceSkies Free\Demo\Scripts\LookCamera.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\FallManager.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\SettingsSave.cs" />
     <Compile Include="Assets\Scripts\GyroManager.cs" />
@@ -84,13 +85,13 @@
     <Compile Include="Assets\Scripts\FollowGyro.cs" />
     <Compile Include="Assets\Scripts\PauseHandler.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
-    <Compile Include="Assets\Scripts\FallManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Assets\Sprites\UI\Space Shooter Game GUI\TXT\license.txt" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
      <None Include="Assets\Assets\Audio\FreeSound\freesound.txt" />
      <None Include="Assets\Assets\Sprites\Space Shooter Game Objects\TXT\license.txt" />
+     <None Include="Assets\LICENSE.txt" />
      <None Include="Assets\Assets\Sprites\Space Shooter Game Objects\TXT\readme.txt" />
      <None Include="Assets\Assets\Sprites\UI\Space Shooter Game GUI\TXT\readme.txt" />
     <Reference Include="UnityEngine">
