@@ -8,9 +8,9 @@ public class FollowGyro : MovingObject
     [Header("Logic")]
     private Rigidbody2D rb2d;
     
-    // Range option so moveSpeedModifier can be modified in Inspector
+    // Range option so moveSpeedModifier can be modified in Inspector 
     // this variable helps to simulate objects acceleration
-    [Range(0.2f, 2f)]
+    [Range(0.002f, 2f)]
     public float moveSpeedModifier = 0.002f;
 
     // Direction variables that read acceleration input to be added
@@ -47,6 +47,10 @@ public class FollowGyro : MovingObject
             dirY = Input.acceleration.y * moveSpeedModifier * gameManager.saveData.sensitivity;
             
             rb2d.velocity = new Vector2(rb2d.velocity.x + dirX, rb2d.velocity.y + dirY);
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(0, 0);
         }
     }
 

@@ -45,14 +45,14 @@ public class FallManager : MonoBehaviour
                 }
                 Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
                 rb2d.MovePosition(finalPosition);
-                StartCoroutine(openGameOverMenu());
+                StartCoroutine(OpenGameOverMenu());
             //}
         }
     }
 
-    IEnumerator openGameOverMenu()
+    IEnumerator OpenGameOverMenu()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3); 
 
         falling = false;
         LevelManager levelManager = LevelManager.GetLevelManager();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,6 +29,25 @@ public class ButtonHandler : MonoBehaviour
 
     public void LoadScene(string levelName)
     {
+        try
+        {
+            GameObject loadingObj = GameObject.Find("Loading");
+            if (loadingObj != null)
+            {
+                foreach (Transform child in loadingObj.transform) {
+                    child.gameObject.SetActive(true);
+                }
+            }
+        }
+        catch (Exception e)
+        { 
+            Debug.LogException(e);
+        }
+        StartCoroutine(LoadSceneCoroutine(levelName));
+    }
+    IEnumerator LoadSceneCoroutine(string levelName)
+    {
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(levelName);
     }
 
