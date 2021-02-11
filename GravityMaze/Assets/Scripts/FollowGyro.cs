@@ -39,7 +39,7 @@ public class FollowGyro : MovingObject
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
+        if (canMove && rb2d != null)
         {
             // Getting devices accelerometer data in X and Y direction
             // multiplied by move speed modifier
@@ -48,7 +48,7 @@ public class FollowGyro : MovingObject
             
             rb2d.velocity = new Vector2(rb2d.velocity.x + dirX, rb2d.velocity.y + dirY);
         }
-        else
+        else if(rb2d != null)
         {
             rb2d.velocity = new Vector2(0, 0);
         }
