@@ -48,14 +48,7 @@ public class ButtonHandler : MonoBehaviour
         {
             if (!Advertisement.isShowing || !showAds)
             {
-                GameObject loadingObj = GameObject.Find("Loading");
-                if (loadingObj != null)
-                {
-                    foreach (Transform child in loadingObj.transform)
-                    {
-                        child.gameObject.SetActive(true);
-                    }
-                }
+                GameManager.OpenLoading();
             }
         }
         catch (Exception e)

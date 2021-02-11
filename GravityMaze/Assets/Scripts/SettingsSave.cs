@@ -11,7 +11,7 @@ public class SettingsSave : MonoBehaviour
         settingsManager = SettingsManager.GetSettingsManager();
         if (settingsManager == null)
         {
-            //TODO : ERROR RETRIEVING SETTINGS MANAGER
+            Errors.SettingsManagerNotFound();
         }
     }
     
@@ -23,7 +23,16 @@ public class SettingsSave : MonoBehaviour
 
     public void Save()
     {
+        GameManager.OpenLoading();
         settingsManager.UpdateSettings();
+
+        StartCoroutine(CloseLoadingCoroutine());
+    }
+
+    IEnumerator CloseLoadingCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        GameManager.CloseLoading();
     }
 
     public void Undo()

@@ -83,6 +83,30 @@ public class GameManager : MonoBehaviour
         return gameManagerObj;
     }
 
+    public static void OpenLoading()
+    {
+        GameObject loadingObj = GameObject.Find("Loading");
+        if (loadingObj != null)
+        {
+            foreach (Transform child in loadingObj.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public static void CloseLoading()
+    {
+        GameObject loadingObj = GameObject.Find("Loading");
+        if (loadingObj != null)
+        {
+            foreach (Transform child in loadingObj.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
+
     public void LoadSave()
     {
         saveData = SaveData.LoadSave();
