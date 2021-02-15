@@ -73,6 +73,15 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void HideScreenRemovables()
+    {
+        var aliens = GameObject.FindGameObjectsWithTag("ScreenRemovable");
+        if (aliens != null)
+        {
+            aliens[0].SetActive(false);
+        }
+    }
+
 
     public void EndLevel()
     {
@@ -84,6 +93,7 @@ public class LevelManager : MonoBehaviour
             CalculateStarsAmount();
             VictoryOrLoseScreen(true);
             HideScreenAlien();
+            HideScreenRemovables();
 
             var nextPlayable = levelNumber >= gameManager.saveData.nextLevel ?
                                     levelNumber + 1 :
@@ -108,6 +118,8 @@ public class LevelManager : MonoBehaviour
             pointsOnLevel = 0;
 
             HideScreenAlien();
+            HideScreenRemovables();
+
             VictoryOrLoseScreen(false);
         }
         else
