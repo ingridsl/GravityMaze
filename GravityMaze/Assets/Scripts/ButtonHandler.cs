@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 
 public class ButtonHandler : MonoBehaviour
 {
@@ -29,14 +30,25 @@ public class ButtonHandler : MonoBehaviour
 
     public void LoadScene(string levelName)
     {
+        bool showAds = (UnityEngine.Random.value > 0.8f);
+        if (showAds || levelName == "MainMenu") {
+            if (Advertisement.IsReady())
+            {
+                Debug.Log("Playing ads!");
+                Advertisement.Show();
+            }
+            else
+            {
+                Debug.Log("Interstitial ad not ready at the moment! Please try again later!");
+            }
+        }
+        Debug.Log("FINISHED Playing ads!");
+
         try
         {
-            GameObject loadingObj = GameObject.Find("Loading");
-            if (loadingObj != null)
+            if (!Advertisement.isShowing || !showAds)
             {
-                foreach (Transform child in loadingObj.transform) {
-                    child.gameObject.SetActive(true);
-                }
+                GameManager.OpenLoading();
             }
         }
         catch (Exception e)

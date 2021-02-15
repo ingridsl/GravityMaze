@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Advertisements;
 
 public class GameManager : MonoBehaviour
 {
     public SaveData saveData = null;
+    string googlePlayId = "4008693";
+    bool testMode = true;
 
     void Awake()
     {
@@ -16,6 +19,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        Advertisement.Initialize(googlePlayId, testMode);
+
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         Screen.orientation = ScreenOrientation.LandscapeRight;
@@ -76,6 +81,30 @@ public class GameManager : MonoBehaviour
             Debug.LogException(e);
         }
         return gameManagerObj;
+    }
+
+    public static void OpenLoading()
+    {
+        GameObject loadingObj = GameObject.Find("Loading");
+        if (loadingObj != null)
+        {
+            foreach (Transform child in loadingObj.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public static void CloseLoading()
+    {
+        GameObject loadingObj = GameObject.Find("Loading");
+        if (loadingObj != null)
+        {
+            foreach (Transform child in loadingObj.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void LoadSave()

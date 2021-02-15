@@ -12,6 +12,7 @@ public static class Errors
         GameControllerNotFound,
         SavePathDoesntExist,
         OrientationError,
+        SettingsManagerNotFound
     }
 
     readonly static string gameManagerNotFound = "GameManager was not found";
@@ -38,5 +39,9 @@ public static class Errors
     public static void OrientationError()
     {
         Debug.LogError(ErrorCode.OrientationError + " : " + " orientation not allowed");
+    }
+    public static void SettingsManagerNotFound()
+    {
+        Debug.LogError(ErrorCode.SettingsManagerNotFound + " : " + " Settings Manager Not Found");
     }
 }

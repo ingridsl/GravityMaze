@@ -10,6 +10,7 @@ public class Countdown : MonoBehaviour
     readonly float startingTime = Constants.COUNTDOWN_TIME;
 
     [SerializeField] Text countDownText;
+    [SerializeField] Text levelNumberText;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class Countdown : MonoBehaviour
         {
             currentTime = 0;
             Destroy(countDownText);
+            Destroy(levelNumberText);
         }
     }
 }
