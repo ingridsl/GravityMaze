@@ -749,11 +749,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Countdown
       objectReference: {fileID: 0}
-    - target: {fileID: 1628857212517966443, guid: 74299748d3a78444b8e1f0d105916d2b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74299748d3a78444b8e1f0d105916d2b, type: 3}
 --- !u!224 &403576849 stripped
@@ -979,12 +974,12 @@ PrefabInstance:
     - target: {fileID: 5385117746144700543, guid: 92e72cf51b419a548a215c5b5daf5494,
         type: 3}
       propertyPath: m_Points.Array.data[50].x
-      value: 2.8186212
+      value: 2.9948559
       objectReference: {fileID: 0}
     - target: {fileID: 5385117746144700543, guid: 92e72cf51b419a548a215c5b5daf5494,
         type: 3}
       propertyPath: m_Points.Array.data[50].y
-      value: 3.8509855
+      value: 3.5161395
       objectReference: {fileID: 0}
     - target: {fileID: 5385117746144700543, guid: 92e72cf51b419a548a215c5b5daf5494,
         type: 3}
@@ -1299,12 +1294,12 @@ PrefabInstance:
     - target: {fileID: 5385117746144700543, guid: 92e72cf51b419a548a215c5b5daf5494,
         type: 3}
       propertyPath: m_Points.Array.data[48].x
-      value: 3.1253932
+      value: 3.0635428
       objectReference: {fileID: 0}
     - target: {fileID: 5385117746144700543, guid: 92e72cf51b419a548a215c5b5daf5494,
         type: 3}
       propertyPath: m_Points.Array.data[48].y
-      value: 3.580041
+      value: 3.3768182
       objectReference: {fileID: 0}
     - target: {fileID: 5385117746144700543, guid: 92e72cf51b419a548a215c5b5daf5494,
         type: 3}
@@ -1315,6 +1310,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Points.Array.data[82].y
       value: -0.98432815
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385117746144700543, guid: 92e72cf51b419a548a215c5b5daf5494,
+        type: 3}
+      propertyPath: m_Points.Array.data[26].x
+      value: 3.1104531
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385117746144700543, guid: 92e72cf51b419a548a215c5b5daf5494,
+        type: 3}
+      propertyPath: m_Points.Array.data[26].y
+      value: -3.4071844
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5385117744386997050, guid: 92e72cf51b419a548a215c5b5daf5494, type: 3}
