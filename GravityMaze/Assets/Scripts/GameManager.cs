@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public SaveData saveData = null;
     string googlePlayId = "4008693";
-    bool testMode = true;
+    bool testMode = false;
 
     void Awake()
     {
