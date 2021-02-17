@@ -14,6 +14,7 @@ public class SaveData
                                         };
     public float sensitivity = 100.0f;
     public int orientation = 1;
+    public bool alienOnScreen = true;
 
     static public SaveData NewSave()
     {

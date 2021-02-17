@@ -7,10 +7,12 @@ public class SettingsManager : MonoBehaviour
 {
     public Slider percentageSlider;
     public Slider orientationSlider;
+    public Slider alienOnScreenSlider;
 
     public Text percentageText;
 
     private static float sensitivityOriginal = 100f;
+    private static bool alienOnScreenDefault = true;
     GameManager gameManager = null;
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class SettingsManager : MonoBehaviour
         {
             percentageSlider.value = gameManager.saveData.sensitivity;
             orientationSlider.value = gameManager.saveData.orientation;
+            alienOnScreenSlider.value = gameManager.saveData.alienOnScreen ? 1 : 0;
             sensitivityOriginal = percentageSlider.value;
         }
     }
@@ -35,6 +38,7 @@ public class SettingsManager : MonoBehaviour
         {
             gameManager.saveData.sensitivity = percentageSlider.value;
             gameManager.saveData.orientation = (int)orientationSlider.value;
+            gameManager.saveData.alienOnScreen = alienOnScreenSlider.value == 1;
             gameManager.saveData.Save();
         }
         else
@@ -57,6 +61,7 @@ public class SettingsManager : MonoBehaviour
     {
         percentageSlider.value = sensitivityOriginal;
         orientationSlider.value = Constants.LandscapeRIGHT;
+        alienOnScreenSlider.value = alienOnScreenDefault ? 1 : 0 ;
     }
 
 }
