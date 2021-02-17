@@ -3162,6 +3162,7 @@ MonoBehaviour:
   totalPointsOfLevel: 5
   levelNumber: 2
   startsAmount: 0
+  screenAlien: {fileID: 2066263798}
 --- !u!4 &1743744424
 Transform:
   m_ObjectHideFlags: 0
@@ -3680,6 +3681,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288e755746082bb41ba868529f413b5a, type: 3}
+--- !u!1 &2066263798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7970185846249781816, guid: 288e755746082bb41ba868529f413b5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2066263797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8247237575276504628
 PrefabInstance:
   m_ObjectHideFlags: 0

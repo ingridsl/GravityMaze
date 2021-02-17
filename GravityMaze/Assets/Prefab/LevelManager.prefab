@@ -47,3 +47,4 @@ MonoBehaviour:
   totalPointsOfLevel: 5
   levelNumber: 1
   startsAmount: 0
+  screenAlien: {fileID: 0}

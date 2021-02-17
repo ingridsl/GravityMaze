@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public int startsAmount = 0;
 
     GameManager gameManager = null;
+    public GameObject screenAlien = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,11 @@ public class LevelManager : MonoBehaviour
         if (gameManager == null)
         {
             Errors.GameManagerNotFound();
+        }
+
+        if (!gameManager.saveData.alienOnScreen)
+        {
+            screenAlien.SetActive(false);
         }
     }
 
