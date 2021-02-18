@@ -16,10 +16,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("GAME MANAGER Awake");
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
     private void Start()
     {
         Advertisement.Initialize(googlePlayId, testMode);
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
