@@ -39,7 +39,15 @@ public class LevelTable : MonoBehaviour
                     int levelNumber = Int16.Parse(child.name);
                     if (levelNumber <= gameManager.saveData.nextLevel) //this level was already played or is the next level
                     {
-                        child.gameObject.SetActive(true);
+                        foreach (Transform buttonChild in child.transform)
+                        {
+                            if (buttonChild.tag == "Button")
+                            {
+                                buttonChild.GetComponent<Button>().interactable = true;
+                            }
+                        }
+
+                        //child.gameObject.SetActive(true);
                         foreach (Transform child2 in child.gameObject.transform)
                         {
                             if (gameManager.saveData.levelStars[levelNumber - 1] == 0)
