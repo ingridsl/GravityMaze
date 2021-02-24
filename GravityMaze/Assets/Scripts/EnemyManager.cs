@@ -46,9 +46,10 @@ public class EnemyManager : MovingObject
 
     IEnumerator openGameOverMenu()
     {
+        LevelManager levelManager = LevelManager.GetLevelManager();
+        levelManager.HideScreenRemovables();
         yield return new WaitForSeconds(3);
 
-        LevelManager levelManager = LevelManager.GetLevelManager();
         if (levelManager != null)
         {
             levelManager.GameOver();

@@ -37,11 +37,11 @@ public class FallManager : MonoBehaviour
                 Vector2 movement = new Vector2();
                 if (up)
                 {
-                    movement = new Vector2(0, 15);
+                    movement = new Vector2(0, 30);
                 }
                 else
                 {
-                    movement = new Vector2(0, -15);
+                    movement = new Vector2(0, -30);
                 }
                 Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
                 rb2d.MovePosition(finalPosition);
@@ -52,10 +52,12 @@ public class FallManager : MonoBehaviour
 
     IEnumerator OpenGameOverMenu()
     {
-        yield return new WaitForSeconds(3); 
 
-        falling = false;
         LevelManager levelManager = LevelManager.GetLevelManager();
+        levelManager.HideScreenRemovables();
+
+        yield return new WaitForSeconds(3);
+        falling = false;
         if (levelManager != null)
         {
             levelManager.GameOver();

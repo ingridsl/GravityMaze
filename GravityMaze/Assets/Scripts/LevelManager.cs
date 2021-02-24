@@ -124,7 +124,6 @@ public class LevelManager : MonoBehaviour
             pointsOnLevel = 0;
 
             HideScreenAlien();
-            HideScreenRemovables();
 
             VictoryOrLoseScreen(false);
         }
