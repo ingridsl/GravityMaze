@@ -30,7 +30,7 @@ public class ButtonHandler : MonoBehaviour
 
     public void LoadScene(string levelName)
     {
-        bool showAds = (UnityEngine.Random.value > 0.8f);
+        bool showAds = (UnityEngine.Random.value > 0.90f);
         if (showAds || levelName == "MainMenu") {
             if (Advertisement.IsReady())
             {
