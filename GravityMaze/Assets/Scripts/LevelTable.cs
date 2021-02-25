@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class LevelTable : MonoBehaviour
 {
-
     public Sprite GoldenStar;
     GameManager gameManager = null;
 

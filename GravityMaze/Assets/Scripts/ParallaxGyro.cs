@@ -23,7 +23,6 @@ public class ParallaxGyro : MonoBehaviour
         GyroManager.Instance.EnableGyro();
         star = GetComponent<SpriteRenderer>();
     }
-
     // Update is called once per frame
     void Update()
     {

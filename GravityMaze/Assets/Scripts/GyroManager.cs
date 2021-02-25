@@ -60,8 +60,7 @@ public class GyroManager : MonoBehaviour
         if (gyroActive)
         {
             rotation = gyro.attitude;
-        }
-        
+        }        
     }
 
     public Quaternion GetGyroRotation()

@@ -23,7 +23,6 @@ public class PauseHandler : MonoBehaviour
         {
             CloseTutorialClick();
         }
-
     }
 
     public void CloseTutorialClick()

@@ -63,5 +63,4 @@ public class SettingsManager : MonoBehaviour
         orientationSlider.value = Constants.LandscapeRIGHT;
         alienOnScreenSlider.value = alienOnScreenDefault ? 1 : 0 ;
     }
-
 }

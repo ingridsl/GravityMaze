@@ -23,7 +23,6 @@ public class PointManager : MonoBehaviour
 
     }
 
-
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")

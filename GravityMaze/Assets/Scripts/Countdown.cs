@@ -8,7 +8,6 @@ public class Countdown : MonoBehaviour
 
     float currentTime = 0f;
     readonly float startingTime = Constants.COUNTDOWN_TIME;
-
     [SerializeField] Text countDownText;
     [SerializeField] Text levelNumberText;
 

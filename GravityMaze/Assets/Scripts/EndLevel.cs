@@ -21,6 +21,7 @@ public class EndLevel : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             LevelManager levelManager = LevelManager.GetLevelManager();
+
             if (levelManager != null)
             {
                 levelManager.EndLevel();

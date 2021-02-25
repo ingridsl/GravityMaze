@@ -111,6 +111,7 @@ public class ButtonHandler : MonoBehaviour
             }
         }
     }
+
     private void SubMenuActivation(bool isActive, string subMenu)
     {
         GameObject subMenuObj = GameObject.Find(subMenu);
