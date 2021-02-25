@@ -11,7 +11,7 @@ public class SaveData
                                         0, 0, 0, 0, 0, //5
                                         0, 0, 0, 0, 0, //10
                                         0, 0, 0, 0, 0, //15
-                                        0, 0, 0, 0, 0,
+                                        0, 0, 0, 0, 0, //20
                                         };
     public float sensitivity = 100.0f;
     public int orientation = 1;

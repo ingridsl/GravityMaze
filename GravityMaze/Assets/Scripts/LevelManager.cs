@@ -132,5 +132,4 @@ public class LevelManager : MonoBehaviour
             Errors.GameManagerNotFound();
         }
     }
-
 }

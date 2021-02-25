@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
             NewSave();
         }
     }
+
     public void UpdateSave(int currentLevel, int nextPlayable, int starsAmount)
     {
         saveData.nextLevel = nextPlayable;
