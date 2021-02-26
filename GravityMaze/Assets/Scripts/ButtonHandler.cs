@@ -30,7 +30,7 @@ public class ButtonHandler : MonoBehaviour
 
     public void LoadScene(string levelName)
     {
-        bool showAds = (UnityEngine.Random.value > 0.85f);
+        bool showAds = (UnityEngine.Random.value > 0.8f);
         if (showAds || levelName == "MainMenu") {
             if (Advertisement.IsReady())
             {
@@ -66,6 +66,12 @@ public class ButtonHandler : MonoBehaviour
     public void SwitchToSelectLevelTable()
     {
         SubMenuActivation(true, "LevelSelection");
+        MainMenuActivation(false);
+    }
+
+    public void SwitchToPrizeTable()
+    {
+        SubMenuActivation(true, "PrizeSelection");
         MainMenuActivation(false);
     }
 

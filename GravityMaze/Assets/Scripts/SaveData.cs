@@ -16,6 +16,7 @@ public class SaveData
     public float sensitivity = 100.0f;
     public int orientation = 1;
     public bool alienOnScreen = true;
+    public int selectedBall = 0;
 
     static public SaveData NewSave()
     {

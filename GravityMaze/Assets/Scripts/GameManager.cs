@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     string googlePlayId = "4008693";
     bool testMode = false;
 
+    public Sprite[] ballsList;
+
     void Awake()
     {
         Debug.Log("GAME MANAGER Awake");

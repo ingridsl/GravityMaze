@@ -13,12 +13,12 @@ public class SettingsManager : MonoBehaviour
 
     private static float sensitivityOriginal = 100f;
     private static bool alienOnScreenDefault = true;
-    GameManager gameManager = null;
+    public GameManager gameManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameManager.GetGameManager();
+        //gameManager = GameManager.GetGameManager();
         if (gameManager == null)
         {
             Errors.GameManagerNotFound();
