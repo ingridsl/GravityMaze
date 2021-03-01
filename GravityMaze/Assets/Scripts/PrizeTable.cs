@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,11 +46,39 @@ public class PrizeTable : MonoBehaviour
 
     void EnablePossibleBalls()
     {
-
+        foreach (Transform childNumber in this.transform)
+        {
+            foreach (Transform childButton in childNumber.transform)
+            {
+                foreach (Transform buttonContents in childButton.transform)
+                {
+                    if (buttonContents.transform.name == "Text")
+                    {
+                        var starsText = buttonContents.GetComponentInChildren<Text>();
+                        if (Int32.Parse(starsText.text) <= starsTotal)
+                        {
+                            childButton.GetComponent<Button>().interactable = true;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     void SetSelectedBall()
     {
         selectedBall = gameManager.saveData.selectedBall;
+        foreach (Transform childNumber in this.transform)
+        {
+            if (childNumber.transform.name == selectedBall.ToString())
+            {
+                PrizeManagement.SetSelectedBall(childNumber);
+            }
+        }
+    }
+
+    void SelectBall()
+    {
+
     }
 }

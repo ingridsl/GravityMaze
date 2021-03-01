@@ -57,6 +57,7 @@ public class SettingsManager : MonoBehaviour
         return GameObject.Find("SettingsManager").GetComponent(typeof(SettingsManager)) as SettingsManager;
     }
 
+
     public void DefaultSettings()
     {
         percentageSlider.value = sensitivityOriginal;

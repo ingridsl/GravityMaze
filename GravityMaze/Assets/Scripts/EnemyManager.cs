@@ -38,7 +38,6 @@ public class EnemyManager : MovingObject
             {
                 Instantiate(bombExplodingPrefab);
             }
-
             StartCoroutine(openGameOverMenu());
         }
     }

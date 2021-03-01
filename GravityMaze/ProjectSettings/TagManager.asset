@@ -11,6 +11,7 @@ TagManager:
   - ScreenRemovable
   - Enemy
   - Button
+  - SelectedBallCircle
   layers:
   - Default
   - TransparentFX

@@ -28,6 +28,7 @@ public class SettingsSave : MonoBehaviour
         StartCoroutine(CloseLoadingCoroutine());
     }
 
+
     IEnumerator CloseLoadingCoroutine()
     {
         yield return new WaitForSeconds(1);

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Advertisements;
 
-public class ButtonHandler : MonoBehaviour
+public class ButtonHandler : MonoBehaviour 
 {
     [SerializeField]
     enum ActivatedScreen
@@ -14,7 +14,7 @@ public class ButtonHandler : MonoBehaviour
         LevelSelection,
         Settings,
         Info
-    }
+    } 
 
     // Start is called before the first frame update
     void Start()

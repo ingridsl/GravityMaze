@@ -23,7 +23,6 @@ public class SaveData
         SaveData saveData = new SaveData();
         try
         {
-
             var path = Application.persistentDataPath;
             Debug.Log("Saving game on path : " + path);
             string saveStatePath = Path.Combine(path, "playerSave.json");

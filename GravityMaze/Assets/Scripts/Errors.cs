@@ -20,7 +20,6 @@ public static class Errors
     readonly static string gameControllerNotFound = "GameController type of game object was not found";
     readonly static string savePathDoesntExist = "Save Path Doesnt Exist";
 
-
     public static void GameManagerNotFound()
     {
         Debug.LogError(ErrorCode.GameManagerNotFound + " : " + gameManagerNotFound);

@@ -30,6 +30,7 @@ public class StarsManager : MonoBehaviour
     public void ChangeStars()
     {
         var levelManager = LevelManager.GetLevelManager();
+
         if (levelManager != null)
         {
             Star1.transform.GetComponent<Image>().sprite = GoldenStar;

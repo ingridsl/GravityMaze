@@ -12,7 +12,7 @@ public class Countdown : MonoBehaviour
     [SerializeField] Text levelNumberText;
 
     // Start is called before the first frame update
-    void Start()
+    void Start() 
     {
         currentTime = startingTime;
     }

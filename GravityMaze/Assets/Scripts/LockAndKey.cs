@@ -25,5 +25,4 @@ public class LockAndKey : MonoBehaviour
             Destroy(this.transform.parent.gameObject);
         }
     }
-
 }

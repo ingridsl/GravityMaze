@@ -40,6 +40,7 @@ public class GyroManager : MonoBehaviour
         }
         if (SystemInfo.supportsGyroscope)
         {
+
             gyro = Input.gyro;
             gyro.enabled = true;
             rotation = Quaternion.Euler(90f, -90f, 0f); //These offset values are essential for the gyroscope to orientate itself correctly

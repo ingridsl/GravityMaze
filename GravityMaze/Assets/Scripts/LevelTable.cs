@@ -76,6 +76,7 @@ public class LevelTable : MonoBehaviour
                             }
                         }
                     }
+
                     if (Int16.Parse(child.name) > gameManager.saveData.nextLevel) //this level is locked
                     {
                         break;

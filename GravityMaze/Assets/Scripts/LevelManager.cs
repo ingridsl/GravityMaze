@@ -94,7 +94,6 @@ public class LevelManager : MonoBehaviour
         if (gameManager != null)
         {
             gameManager.StopBackgroundMusic();
-
             PointManager.AddPoint();
             CalculateStarsAmount();
             VictoryOrLoseScreen(true);

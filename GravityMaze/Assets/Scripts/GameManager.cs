@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         Screen.orientation = ScreenOrientation.LandscapeRight;
-
         Debug.Log("first time : " + Screen.orientation.ToString());
         Screen.autorotateToLandscapeRight = false;
         Screen.autorotateToLandscapeLeft = false;

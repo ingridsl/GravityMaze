@@ -60,7 +60,6 @@ public class FollowGyro : MovingObject
         if (col.gameObject.tag == "End")
         {
             GameObject winGameObj = GameObject.Find("WinOrLose");
-
             if (winGameObj != null)
             {
                 if (winGameObj.transform.name == "Win")

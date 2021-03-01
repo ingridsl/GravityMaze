@@ -52,7 +52,6 @@ public class FallManager : MonoBehaviour
 
         LevelManager levelManager = LevelManager.GetLevelManager();
         levelManager.HideScreenRemovables();
-
         yield return new WaitForSeconds(3);
         falling = false;
         if (levelManager != null)

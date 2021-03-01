@@ -70,6 +70,7 @@
     <Compile Include="Assets\Assets\Materials\SpaceSkies Free\Demo\Scripts\SkyboxChanger.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
+    <Compile Include="Assets\Scripts\PrizeTable.cs" />
     <Compile Include="Assets\Scripts\MovingObject.cs" />
     <Compile Include="Assets\Scripts\Errors.cs" />
     <Compile Include="Assets\Scripts\ParallaxGyro.cs" />
@@ -78,7 +79,7 @@
     <Compile Include="Assets\Scripts\FollowGyro.cs" />
     <Compile Include="Assets\Scripts\PauseHandler.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
-    <Compile Include="Assets\Scripts\PrizeTable.cs" />
+    <Compile Include="Assets\Scripts\PrizeManagement.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Assets\Sprites\UI\Space Shooter Game GUI\TXT\license.txt" />
