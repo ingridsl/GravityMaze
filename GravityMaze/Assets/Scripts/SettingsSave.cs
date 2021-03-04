@@ -25,16 +25,9 @@ public class SettingsSave : MonoBehaviour
     {
         GameManager.OpenLoading();
         settingsManager.UpdateSettings();
-        StartCoroutine(CloseLoadingCoroutine());
+        StartCoroutine(GameManager.CloseLoadingCoroutine());
     }
-
-
-    IEnumerator CloseLoadingCoroutine()
-    {
-        yield return new WaitForSeconds(1);
-        GameManager.CloseLoading();
-    }
-
+    
     public void Undo()
     {
         settingsManager.DefaultSettings();

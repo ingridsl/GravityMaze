@@ -142,6 +142,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static IEnumerator CloseLoadingCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        GameManager.CloseLoading();
+    }
+
     public void NewSave()
     {
         saveData = SaveData.NewSave();

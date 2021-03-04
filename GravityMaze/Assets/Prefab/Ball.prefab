@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a812cf0ef66b743b649e339a4e8801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRotation: {x: 0, y: 0, z: 1, w: 0}
-  gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 20
+  canMove: 0
+  spriteRenderer: {fileID: 2262200537584566327}
+  moveSpeedModifier: 0.002
