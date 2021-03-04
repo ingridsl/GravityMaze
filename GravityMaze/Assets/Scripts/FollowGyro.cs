@@ -7,7 +7,8 @@ public class FollowGyro : MovingObject
 { 
     [Header("Logic")]
     private Rigidbody2D rb2d;
-    
+    public SpriteRenderer spriteRenderer;
+
     // Range option so moveSpeedModifier can be modified in Inspector 
     // this variable helps to simulate objects acceleration
     [Range(0.002f, 2f)]
@@ -23,6 +24,10 @@ public class FollowGyro : MovingObject
     void Start()
     {
         gameManager = GameManager.GetGameManager();
+        if (gameManager.saveData.selectedBall != 0) {
+            spriteRenderer.sprite = gameManager.ballsList[gameManager.saveData.selectedBall-1];
+        }
+
         StartCoroutine(StartAfterTime(Constants.COUNTDOWN_TIME));
     }
 

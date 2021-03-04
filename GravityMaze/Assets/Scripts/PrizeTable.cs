@@ -72,7 +72,11 @@ public class PrizeTable : MonoBehaviour
         {
             if (childNumber.transform.name == selectedBall.ToString())
             {
-                PrizeManagement.SetSelectedBall(childNumber);
+
+                foreach (Transform childButton in childNumber.transform)
+                {
+                    PrizeManagement.SetSelectedBall(childButton);
+                }
             }
         }
     }
