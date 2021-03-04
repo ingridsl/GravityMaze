@@ -761,44 +761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbc2a3044e7eda4cbe9ef66bd028632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &71059376 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7973692284066146199, guid: a8ffaa7b4c6823f4aacaa2cd747c6150,
-    type: 3}
-  m_PrefabInstance: {fileID: 7973692284160444798}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &71059377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71059376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd4cdd4b63193204da7cffdfb77fdb3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &71059378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71059376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dc5a24bf8b1c354dbac2a841c465260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballsList:
-  - {fileID: 21300000, guid: d72f1c3584b8a9b4880dd05c6d23ff5a, type: 3}
-  - {fileID: 21300000, guid: cc249823dd4c9684fadb085e59586603, type: 3}
-  - {fileID: 21300000, guid: 7edce55752613ce4db8751ecd2da7d18, type: 3}
-  - {fileID: 21300000, guid: 3253430a825dc3248890db60a1c1323a, type: 3}
-  - {fileID: 21300000, guid: cebcb439ea785644791d5d0ecde038eb, type: 3}
-  - {fileID: 21300000, guid: 48430dbaed7e6e84ea72a04986f12ace, type: 3}
-  - {fileID: 21300000, guid: 7b2a5cc5997ac1d4e9ddace508747c40, type: 3}
 --- !u!1 &75125965
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,9 +3358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bf126edac97874bb174fbe3a82fe8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRotation: {x: 0, y: 0, z: 1, w: 0}
-  gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 0.02
 --- !u!212 &361632641
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4860,9 +4819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bf126edac97874bb174fbe3a82fe8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRotation: {x: 0, y: 0, z: 1, w: 0}
-  gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 0.02
 --- !u!212 &460637051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8612,7 +8568,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19726,9 +19682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bf126edac97874bb174fbe3a82fe8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseRotation: {x: 0, y: 0, z: 1, w: 0}
-  gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 0.06
 --- !u!212 &1982523972
 SpriteRenderer:
   m_ObjectHideFlags: 0

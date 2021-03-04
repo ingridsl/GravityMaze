@@ -124,9 +124,21 @@ public class GameManager : MonoBehaviour
     public void UpdateSave(int currentLevel, int nextPlayable, int starsAmount)
     {
         saveData.nextLevel = nextPlayable;
-        if (saveData.levelStars[currentLevel - 1] < starsAmount) {
-            saveData.levelStars[currentLevel - 1] = starsAmount;
-            saveData.Save();
+        if (currentLevel <= 15)
+        {
+            if (saveData.levelStars[currentLevel - 1] < starsAmount)
+            {
+                saveData.levelStars[currentLevel - 1] = starsAmount;
+                saveData.Save();
+            }
+        }
+        else
+        {
+            if (saveData.newLevelStars[currentLevel - 1] < starsAmount)
+            {
+                saveData.newLevelStars[currentLevel - 1] = starsAmount;
+                saveData.Save();
+            }
         }
     }
 

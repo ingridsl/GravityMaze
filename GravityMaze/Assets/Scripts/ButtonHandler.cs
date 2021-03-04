@@ -13,7 +13,8 @@ public class ButtonHandler : MonoBehaviour
         MainMenu,
         LevelSelection,
         Settings,
-        Info
+        Info,
+        Trophy
     } 
 
     // Start is called before the first frame update
@@ -99,6 +100,9 @@ public class ButtonHandler : MonoBehaviour
                 break;
             case (int)ActivatedScreen.Info:
                 SubMenuActivation(false, "Info");
+                break;
+            case (int)ActivatedScreen.Trophy:
+                SubMenuActivation(false, "PrizeSelection");
                 break;
             default:
                 break;

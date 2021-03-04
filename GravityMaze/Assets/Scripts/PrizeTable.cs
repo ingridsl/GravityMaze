@@ -41,6 +41,10 @@ public class PrizeTable : MonoBehaviour
         {
             starsTotal += starAmount;
         }
+        foreach (int starAmount in gameManager.saveData.newLevelStars)
+        {
+            starsTotal += starAmount;
+        }        
         starsTotalText.text = starsTotal.ToString();
     }
 
