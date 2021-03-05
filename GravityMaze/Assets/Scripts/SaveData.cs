@@ -10,18 +10,30 @@ public class SaveData
     public int[] levelStars = new int[] {
                                         0, 0, 0, 0, 0, //5
                                         0, 0, 0, 0, 0, //10
-                                        0, 0, 0, 0, 0, //15
+                                        0, 0, 0, 0, 0  //15
+                                        };
+    public int[] newLevelStars = new int[] {
+                                        0, 0, 0, 0, 0, //20
+                                        0, 0, 0, 0, 0, //25
+                                        0, 0, 0, 0, 0, //30
+                                        0, 0, 0, 0, 0, //35
+                                        0, 0, 0, 0, 0, //40
+                                        0, 0, 0, 0, 0, //45
+                                        0, 0, 0, 0, 0, //50
+                                        0, 0, 0, 0, 0, //55
+                                        0, 0, 0, 0, 0, //60
+                                        0, 0, 0, 0, 0  //65
                                         };
     public float sensitivity = 100.0f;
     public int orientation = 1;
     public bool alienOnScreen = true;
+    public int selectedBall = 0;
 
     static public SaveData NewSave()
     {
         SaveData saveData = new SaveData();
         try
         {
-
             var path = Application.persistentDataPath;
             Debug.Log("Saving game on path : " + path);
             string saveStatePath = Path.Combine(path, "playerSave.json");

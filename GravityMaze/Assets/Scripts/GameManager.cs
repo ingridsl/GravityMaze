@@ -9,22 +9,27 @@ public class GameManager : MonoBehaviour
 {
     public SaveData saveData = null;
     string googlePlayId = "4008693";
-    bool testMode = true;
+    bool testMode = false;
+
+    public Sprite[] ballsList;
 
     void Awake()
     {
         Debug.Log("GAME MANAGER Awake");
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
     private void Start()
     {
         Advertisement.Initialize(googlePlayId, testMode);
 
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         Screen.orientation = ScreenOrientation.LandscapeRight;
-
         Debug.Log("first time : " + Screen.orientation.ToString());
         Screen.autorotateToLandscapeRight = false;
         Screen.autorotateToLandscapeLeft = false;
@@ -115,13 +120,32 @@ public class GameManager : MonoBehaviour
             NewSave();
         }
     }
+
     public void UpdateSave(int currentLevel, int nextPlayable, int starsAmount)
     {
         saveData.nextLevel = nextPlayable;
-        if (saveData.levelStars[currentLevel - 1] < starsAmount) {
-            saveData.levelStars[currentLevel - 1] = starsAmount;
-            saveData.Save();
+        if (currentLevel <= 15)
+        {
+            if (saveData.levelStars[currentLevel - 1] < starsAmount)
+            {
+                saveData.levelStars[currentLevel - 1] = starsAmount;
+                saveData.Save();
+            }
         }
+        else
+        {
+            if (saveData.newLevelStars[currentLevel - 1] < starsAmount)
+            {
+                saveData.newLevelStars[currentLevel - 1] = starsAmount;
+                saveData.Save();
+            }
+        }
+    }
+
+    public static IEnumerator CloseLoadingCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        GameManager.CloseLoading();
     }
 
     public void NewSave()

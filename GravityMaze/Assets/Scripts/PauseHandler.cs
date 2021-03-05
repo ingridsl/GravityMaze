@@ -23,7 +23,6 @@ public class PauseHandler : MonoBehaviour
         {
             CloseTutorialClick();
         }
-
     }
 
     public void CloseTutorialClick()
@@ -38,7 +37,6 @@ public class PauseHandler : MonoBehaviour
             {
                 child.gameObject.SetActive(true);
             }
-
         }
 
         GameObject pauseGameObj = GameObject.Find("PauseObjects");

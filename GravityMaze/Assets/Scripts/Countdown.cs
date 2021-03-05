@@ -8,12 +8,11 @@ public class Countdown : MonoBehaviour
 
     float currentTime = 0f;
     readonly float startingTime = Constants.COUNTDOWN_TIME;
-
     [SerializeField] Text countDownText;
     [SerializeField] Text levelNumberText;
 
     // Start is called before the first frame update
-    void Start()
+    void Start() 
     {
         currentTime = startingTime;
     }

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MovingObject
@@ -39,16 +38,16 @@ public class EnemyManager : MovingObject
             {
                 Instantiate(bombExplodingPrefab);
             }
-
             StartCoroutine(openGameOverMenu());
         }
     }
 
     IEnumerator openGameOverMenu()
     {
+        LevelManager levelManager = LevelManager.GetLevelManager();
+        levelManager.HideScreenRemovables();
         yield return new WaitForSeconds(3);
 
-        LevelManager levelManager = LevelManager.GetLevelManager();
         if (levelManager != null)
         {
             levelManager.GameOver();

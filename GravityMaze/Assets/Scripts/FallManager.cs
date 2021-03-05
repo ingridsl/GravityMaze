@@ -22,7 +22,7 @@ public class FallManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -32,30 +32,28 @@ public class FallManager : MonoBehaviour
             Rigidbody2D rb2d = col.gameObject.GetComponent<Rigidbody2D>();
             gameManager.SetPausableObjectsMovement(false);
             falling = true;
-            //while (falling)
-            //{
-                Vector2 movement = new Vector2();
-                if (up)
-                {
-                    movement = new Vector2(0, 15);
-                }
-                else
-                {
-                    movement = new Vector2(0, -15);
-                }
-                Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
-                rb2d.MovePosition(finalPosition);
-                StartCoroutine(OpenGameOverMenu());
-            //}
+            Vector2 movement = new Vector2();
+            if (up)
+            {
+                movement = new Vector2(0, 30);
+            }
+            else
+            {
+                movement = new Vector2(0, -30);
+            }
+            Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
+            rb2d.MovePosition(finalPosition);
+            StartCoroutine(OpenGameOverMenu());
         }
     }
 
     IEnumerator OpenGameOverMenu()
     {
-        yield return new WaitForSeconds(3); 
 
-        falling = false;
         LevelManager levelManager = LevelManager.GetLevelManager();
+        levelManager.HideScreenRemovables();
+        yield return new WaitForSeconds(3);
+        falling = false;
         if (levelManager != null)
         {
             levelManager.GameOver();

@@ -94,7 +94,6 @@ public class LevelManager : MonoBehaviour
         if (gameManager != null)
         {
             gameManager.StopBackgroundMusic();
-
             PointManager.AddPoint();
             CalculateStarsAmount();
             VictoryOrLoseScreen(true);
@@ -124,7 +123,6 @@ public class LevelManager : MonoBehaviour
             pointsOnLevel = 0;
 
             HideScreenAlien();
-            HideScreenRemovables();
 
             VictoryOrLoseScreen(false);
         }
@@ -133,5 +131,4 @@ public class LevelManager : MonoBehaviour
             Errors.GameManagerNotFound();
         }
     }
-
 }

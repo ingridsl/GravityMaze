@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Advertisements;
 
-public class ButtonHandler : MonoBehaviour
+public class ButtonHandler : MonoBehaviour 
 {
     [SerializeField]
     enum ActivatedScreen
@@ -13,8 +13,9 @@ public class ButtonHandler : MonoBehaviour
         MainMenu,
         LevelSelection,
         Settings,
-        Info
-    }
+        Info,
+        Trophy
+    } 
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +70,12 @@ public class ButtonHandler : MonoBehaviour
         MainMenuActivation(false);
     }
 
+    public void SwitchToPrizeTable()
+    {
+        SubMenuActivation(true, "PrizeSelection");
+        MainMenuActivation(false);
+    }
+
     public void SwitchToSettings()
     {
         SubMenuActivation(true, "Settings");
@@ -94,6 +101,9 @@ public class ButtonHandler : MonoBehaviour
             case (int)ActivatedScreen.Info:
                 SubMenuActivation(false, "Info");
                 break;
+            case (int)ActivatedScreen.Trophy:
+                SubMenuActivation(false, "PrizeSelection");
+                break;
             default:
                 break;
         }
@@ -111,6 +121,7 @@ public class ButtonHandler : MonoBehaviour
             }
         }
     }
+
     private void SubMenuActivation(bool isActive, string subMenu)
     {
         GameObject subMenuObj = GameObject.Find(subMenu);

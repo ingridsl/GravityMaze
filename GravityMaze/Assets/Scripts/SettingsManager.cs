@@ -13,12 +13,12 @@ public class SettingsManager : MonoBehaviour
 
     private static float sensitivityOriginal = 100f;
     private static bool alienOnScreenDefault = true;
-    GameManager gameManager = null;
+    public GameManager gameManager = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameManager.GetGameManager();
+        //gameManager = GameManager.GetGameManager();
         if (gameManager == null)
         {
             Errors.GameManagerNotFound();
@@ -57,11 +57,11 @@ public class SettingsManager : MonoBehaviour
         return GameObject.Find("SettingsManager").GetComponent(typeof(SettingsManager)) as SettingsManager;
     }
 
+
     public void DefaultSettings()
     {
         percentageSlider.value = sensitivityOriginal;
         orientationSlider.value = Constants.LandscapeRIGHT;
         alienOnScreenSlider.value = alienOnScreenDefault ? 1 : 0 ;
     }
-
 }
