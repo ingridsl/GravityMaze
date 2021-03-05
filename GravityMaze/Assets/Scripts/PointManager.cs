@@ -10,7 +10,6 @@ public class PointManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         levelManager = LevelManager.GetLevelManager();
         if(levelManager == null)
         {

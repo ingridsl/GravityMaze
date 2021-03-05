@@ -54,6 +54,7 @@ public class FallManager : MonoBehaviour
         levelManager.HideScreenRemovables();
         yield return new WaitForSeconds(3);
         falling = false;
+
         if (levelManager != null)
         {
             levelManager.GameOver();

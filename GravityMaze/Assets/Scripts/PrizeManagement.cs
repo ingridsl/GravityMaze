@@ -41,6 +41,7 @@ public class PrizeManagement : MonoBehaviour
                 selectedImagesObj.SetActive(false);
             }
         }
+
         gameManager.saveData.selectedBall = Int32.Parse(this.transform.parent.name);
         gameManager.saveData.Save();
         SetSelectedBall(this.transform, gameManager);

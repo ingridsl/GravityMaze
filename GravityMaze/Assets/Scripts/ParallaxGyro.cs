@@ -45,5 +45,6 @@ public class ParallaxGyro : MonoBehaviour
             Vector2 movement = new Vector2(star.transform.position.x + (moveX * speed), star.transform.position.y + (moveY * speed));
             star.transform.position = movement;
         }
+
     }
 }

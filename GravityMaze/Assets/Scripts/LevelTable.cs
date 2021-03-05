@@ -17,6 +17,7 @@ public class LevelTable : MonoBehaviour
         {
             Errors.GameManagerNotFound();
         }
+
         EnableLevels();
     }
 
