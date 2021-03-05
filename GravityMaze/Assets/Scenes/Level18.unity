@@ -6090,7 +6090,7 @@ PrefabInstance:
     - target: {fileID: 5276656961670444898, guid: 3c50878c84e74aa4fb5eddbf9a1efe2d,
         type: 3}
       propertyPath: m_Text
-      value: 'Level 17
+      value: 'Level 18
 
 '
       objectReference: {fileID: 0}
