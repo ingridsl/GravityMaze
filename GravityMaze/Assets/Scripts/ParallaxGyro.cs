@@ -9,7 +9,7 @@ public class ParallaxGyro : MonoBehaviour
     [SerializeField] private Quaternion baseRotation = new Quaternion(0, 0, 1, 0);
     public Quaternion gyroMovement = new Quaternion(0, 0, 1, 0);
     private SpriteRenderer star;
-    public float speed = 1;
+    private float speed = 0.06f;
 
     private readonly float idleProtectionY = 0.06f;
     private readonly float idleProtectionX = 0.06f;

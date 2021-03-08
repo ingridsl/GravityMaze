@@ -48,13 +48,14 @@ public class LevelTable : MonoBehaviour
                         }
 
                         //child.gameObject.SetActive(true);
-                        //if (levelNumber <= 15) {
+                        if (levelNumber <= 15)
+                        {
                             LevelStars(gameManager.saveData.levelStars, levelNumber, child);
-                        //}
-                       // else
-                       // {
+                        }
+                        else
+                        {
                             LevelStars(gameManager.saveData.newLevelStars, levelNumber, child);
-                      //  }
+                        }
                     }
 
                     if (Int16.Parse(child.name) > gameManager.saveData.nextLevel) //this level is locked
