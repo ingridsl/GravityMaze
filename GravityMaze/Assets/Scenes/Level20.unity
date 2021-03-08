@@ -1185,6 +1185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bf126edac97874bb174fbe3a82fe8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseRotation: {x: 0, y: 0, z: 1, w: 0}
+  gyroMovement: {x: 0, y: 0, z: 1, w: 0}
+  speed: 1
 --- !u!212 &288073788
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9308,7 +9311,7 @@ PrefabInstance:
     - target: {fileID: 5276656961670444898, guid: 3c50878c84e74aa4fb5eddbf9a1efe2d,
         type: 3}
       propertyPath: m_Text
-      value: 'Level 19
+      value: 'Level 20
 
 '
       objectReference: {fileID: 0}
@@ -9538,7 +9541,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 106573156, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level19
+      value: Level20
       objectReference: {fileID: 0}
     - target: {fileID: 1671031577, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
       propertyPath: m_RootOrder
