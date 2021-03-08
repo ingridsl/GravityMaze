@@ -35,11 +35,11 @@ public class FallManager : MonoBehaviour
             Vector2 movement = new Vector2();
             if (up)
             {
-                movement = new Vector2(0, 30);
+                movement = new Vector2(0, 15);
             }
             else
             {
-                movement = new Vector2(0, -30);
+                movement = new Vector2(0, -15);
             }
             Vector2 finalPosition = rb2d.position + movement * Time.fixedDeltaTime;
             rb2d.MovePosition(finalPosition);
