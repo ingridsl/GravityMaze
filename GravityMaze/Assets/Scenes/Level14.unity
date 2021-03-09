@@ -8128,7 +8128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseRotation: {x: 0, y: 0, z: 1, w: 0}
   gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 0.06
+  isBackgroundStar: 0
 --- !u!212 &2039206089
 SpriteRenderer:
   m_ObjectHideFlags: 0
