@@ -9,7 +9,7 @@ public class PrizeManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager gameManager = GameManager.GetGameManager();
+        gameManager = GameManager.GetGameManager();
         if (gameManager == null)
         {
             Errors.GameManagerNotFound();
