@@ -30,5 +30,6 @@ public class EndLevel : MonoBehaviour
                 Errors.LevelManagerNotFound();
             }
         }
+
     }
 }

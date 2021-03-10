@@ -9,7 +9,8 @@ public class ParallaxGyro : MonoBehaviour
     [SerializeField] private Quaternion baseRotation = new Quaternion(0, 0, 1, 0);
     public Quaternion gyroMovement = new Quaternion(0, 0, 1, 0);
     private SpriteRenderer star;
-    public float speed = 1;
+    private float speed = 0.06f;
+    public bool isBackgroundStar = false;
 
     private readonly float idleProtectionY = 0.06f;
     private readonly float idleProtectionX = 0.06f;
@@ -20,6 +21,10 @@ public class ParallaxGyro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (isBackgroundStar)
+        {
+            speed /= 2;
+        }
         GyroManager.Instance.EnableGyro();
         star = GetComponent<SpriteRenderer>();
     }
@@ -45,5 +50,6 @@ public class ParallaxGyro : MonoBehaviour
             Vector2 movement = new Vector2(star.transform.position.x + (moveX * speed), star.transform.position.y + (moveY * speed));
             star.transform.position = movement;
         }
+
     }
 }

@@ -39,6 +39,7 @@ public class PauseHandler : MonoBehaviour
             }
         }
 
+
         GameObject pauseGameObj = GameObject.Find("PauseObjects");
         if (pauseGameObj != null)
         {

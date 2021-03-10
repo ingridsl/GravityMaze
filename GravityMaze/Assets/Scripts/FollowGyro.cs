@@ -24,6 +24,7 @@ public class FollowGyro : MovingObject
     void Start()
     {
         gameManager = GameManager.GetGameManager();
+
         if (gameManager.saveData.selectedBall != 0) {
             spriteRenderer.sprite = gameManager.ballsList[gameManager.saveData.selectedBall-1];
         }

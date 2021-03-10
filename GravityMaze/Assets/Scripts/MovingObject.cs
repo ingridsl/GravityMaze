@@ -13,7 +13,6 @@ public class MovingObject : MonoBehaviour
 
     }
 
-
     // Update is called once per frame
     void Update()
     {

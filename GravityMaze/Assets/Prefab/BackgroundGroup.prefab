@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseRotation: {x: 0, y: 0, z: 1, w: 0}
   gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 0.06
+  isBackgroundStar: 0
 --- !u!1 &2015591512975340877
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseRotation: {x: 0, y: 0, z: 1, w: 0}
   gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 0.06
+  isBackgroundStar: 0
 --- !u!1 &2760909033524007481
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseRotation: {x: 0, y: 0, z: 1, w: 0}
   gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 0.02
+  isBackgroundStar: 1
 --- !u!1 &2760909033999590763
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,4 +693,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseRotation: {x: 0, y: 0, z: 1, w: 0}
   gyroMovement: {x: 0, y: 0, z: 1, w: 0}
-  speed: 0.06
+  isBackgroundStar: 0

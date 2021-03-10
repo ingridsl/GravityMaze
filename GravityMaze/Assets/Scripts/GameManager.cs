@@ -134,9 +134,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (saveData.newLevelStars[currentLevel - 1] < starsAmount)
+            int difference = currentLevel <= 15 ? 1 : 16;
+            if (saveData.newLevelStars[currentLevel - difference] < starsAmount)
             {
-                saveData.newLevelStars[currentLevel - 1] = starsAmount;
+                saveData.newLevelStars[currentLevel - difference] = starsAmount;
                 saveData.Save();
             }
         }
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
 
     public void StopBackgroundMusic()
     {

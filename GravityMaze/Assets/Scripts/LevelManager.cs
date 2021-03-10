@@ -88,7 +88,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-
     public void EndLevel()
     {
         if (gameManager != null)

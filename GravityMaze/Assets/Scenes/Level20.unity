@@ -1185,6 +1185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bf126edac97874bb174fbe3a82fe8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseRotation: {x: 0, y: 0, z: 1, w: 0}
+  gyroMovement: {x: 0, y: 0, z: 1, w: 0}
+  speed: 1
 --- !u!212 &288073788
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7996,12 +7999,12 @@ PrefabInstance:
     - target: {fileID: 8657170294391838240, guid: 79fe022f8a18d5648b4572a106bd882b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.989
+      value: -4.51
       objectReference: {fileID: 0}
     - target: {fileID: 8657170294391838240, guid: 79fe022f8a18d5648b4572a106bd882b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.306
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: 8657170294391838240, guid: 79fe022f8a18d5648b4572a106bd882b,
         type: 3}
@@ -9308,7 +9311,7 @@ PrefabInstance:
     - target: {fileID: 5276656961670444898, guid: 3c50878c84e74aa4fb5eddbf9a1efe2d,
         type: 3}
       propertyPath: m_Text
-      value: 'Level 19
+      value: 'Level 20
 
 '
       objectReference: {fileID: 0}
@@ -9337,7 +9340,7 @@ Animator:
   m_GameObject: {fileID: 1681860387}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a45cc49b9e028e448cba6ceccd2a8f5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 87f82815ea6f13846bd16e4b5f762f2a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9538,7 +9541,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 106573156, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level19
+      value: Level20
       objectReference: {fileID: 0}
     - target: {fileID: 1671031577, guid: bc83a1a0e8dc9f642b52387ca6bfcb01, type: 3}
       propertyPath: m_RootOrder

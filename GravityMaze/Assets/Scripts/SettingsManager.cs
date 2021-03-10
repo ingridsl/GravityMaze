@@ -52,11 +52,11 @@ public class SettingsManager : MonoBehaviour
     {
         percentageText.text = percentageSlider.value.ToString() + "%";
     }
+
     static public SettingsManager GetSettingsManager()
     {
         return GameObject.Find("SettingsManager").GetComponent(typeof(SettingsManager)) as SettingsManager;
     }
-
 
     public void DefaultSettings()
     {

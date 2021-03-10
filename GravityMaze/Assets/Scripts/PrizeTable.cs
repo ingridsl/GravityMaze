@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class PrizeTable : MonoBehaviour
 {
-    public GameManager gameManager = null;
-
+    GameManager gameManager = null;
     int selectedBall = 0;
     int starsTotal = 0;
 
@@ -16,6 +15,7 @@ public class PrizeTable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.GetGameManager();
         if (gameManager == null)
         {
             Errors.GameManagerNotFound();
@@ -77,11 +77,13 @@ public class PrizeTable : MonoBehaviour
             if (childNumber.transform.name == selectedBall.ToString())
             {
 
-                foreach (PrizeManagement childButton in childNumber.transform)
+                foreach (Transform childButton in childNumber.transform)
                 {
-                    childButton.SetSelectedBall(childButton.transform, gameManager);
+                    PrizeManagement prizeManagement = childButton.GetComponent<PrizeManagement>();
+                    prizeManagement.SetSelectedBall(childButton.transform, gameManager);
                 }
             }
         }
     }
+
 }

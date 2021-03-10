@@ -5,6 +5,7 @@ using UnityEngine;
 public class SettingsSave : MonoBehaviour
 {
     SettingsManager settingsManager = null;
+
     // Start is called before the first frame update
     void Start()
     {

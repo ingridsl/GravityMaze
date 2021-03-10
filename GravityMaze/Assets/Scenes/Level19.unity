@@ -6094,6 +6094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bf126edac97874bb174fbe3a82fe8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseRotation: {x: 0, y: 0, z: 1, w: 0}
+  gyroMovement: {x: 0, y: 0, z: 1, w: 0}
+  speed: 0.06
 --- !u!212 &963860349
 SpriteRenderer:
   m_ObjectHideFlags: 0

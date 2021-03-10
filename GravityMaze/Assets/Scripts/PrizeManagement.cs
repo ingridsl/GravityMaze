@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class PrizeManagement : MonoBehaviour
 {
-    public GameManager gameManager = null;
+    GameManager gameManager = null;
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager = GameManager.GetGameManager();
+        if (gameManager == null)
+        {
+            Errors.GameManagerNotFound();
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +45,7 @@ public class PrizeManagement : MonoBehaviour
                 selectedImagesObj.SetActive(false);
             }
         }
+
         gameManager.saveData.selectedBall = Int32.Parse(this.transform.parent.name);
         gameManager.saveData.Save();
         SetSelectedBall(this.transform, gameManager);
